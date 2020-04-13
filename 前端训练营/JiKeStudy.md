@@ -50,38 +50,49 @@
 
 ### 2.前端思维导图梳理
 
-![HTML样本.PNG](.\imgs\第一周\HTML样本.PNG)
+![前端知识体系.PNG](.\imgs\第一周\前端知识体系.PNG)
+
+#### 2.1 HTML
+
+![前端知识体系_HTML.PNG](.\imgs\第一周\前端知识体系_HTML.PNG)
 
 - HTML
-	- DTD
+	- DTD资料搜查
 		- 谷歌搜索html4.0 dtd
 		- 打开HTML的DTD规范网址：https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml1-strict.dtd
-![DTDFile.PNG](.\imgs\第一周\DTDFile.PNG)
-		- 下载entity文件
-			- https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml-lat1.ent
-			- https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml-symbol.ent
-			- https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml-special.ent
 
-```
-HTML5 的 DTD
-<!doctype html>
-```
+	- entity文件
+		![DTDFile.PNG](.\imgs\第一周\DTDFile.PNG)
+        - https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml-lat1.ent
+        - https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml-symbol.ent
+        - https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml-special.ent
+    ```
+    HTML5 的 DTD
+    <!doctype html>
+    ```
 
-- Javascript
-![有趣的空白符.PNG](.\imgs\第一周\有趣的空白符.PNG)
+**简单示例code**
+
+![HTML样本.PNG](.\imgs\第一周\HTML样本.PNG)
+
+#### 2.2 Javascript
+![前端知识体系_Javascript.PNG](.\imgs\第一周\前端知识体系_Javascript.PNG)
 运行时JobRun()
 ![运行时.PNG](.\imgs\第一周\运行时.PNG)
+有趣代码片段
+![有趣的空白符.PNG](.\imgs\第一周\有趣的空白符.PNG)
 
+#### 2.3 CSS
 
+![前端知识体系_CSS.PNG](.\imgs\第一周\前端知识体系_CSS.PNG)
 
-
-- CSS
-	- 参考W3网站的CSS2.1
-	- CSS规则
+- 参考W3网站的CSS2.1
+- CSS规则
 ![CSS规则.PNG](.\imgs\第一周\CSS规则.PNG)
 	- Selector3
 
-### 3.前端思维导图梳理
+### 3.前端思维导图详细（详见Xmind文件）
+
 ### 4.前端工程体系
 #### 4.1 优秀工程师是什么样的
 ![优秀工程师.PNG](.\imgs\第一周\优秀工程师.PNG)
