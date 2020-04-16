@@ -1,0 +1,57 @@
+"a"
+"b"
+
+<Program:=<Program> a "+"|<Program> b "+"
+//定义一个加法 允许连加
+//1.定义一个number
+<Number> = "0"|"1"|"2"......|"9"
+10进制整数
+加法
+<DecimalNumber> ::= "0"|("0"|"1"|"2"......|"9")<Number>*)
+
+<AdditiveExpression> ::= <DecimalNumber> |<AdditiveExpression>"+"<DecimalNumber>
+乘法
+<MultiptiveExpression> ::= <DecimalNumber> |<MultiptiveExpression>"*"<DecimalNumber>
+//逻辑
+<LogicExpression> ::= 
+
+//十进制正则表达式
+<DecimalNumber> = /"0"|[1-9]]*/
+词法分析
+建立语法树，裁剪
+1型
+{
+    get a{return 1},
+    get:1
+}
+3型
+2**1**2
+
+//JS关键部分在Grammer Summary
+词法定义用的::
+语法定义用的：
+终结符 ：用加粗来实现
+
+
+设计一个语言，首先判断是不是图灵完备性，一旦是图灵完备性就要考虑类型系统
+类型系统
+强类型：无隐式转换的类型
+弱类型：有隐式转换的类型
+
+复合类型（键值对）
+    - 结构体
+    - 函数签名（参数列表和返回值类型）
+子类型
+    - 逆变/协变（同向）
+
+C系列
+Function 和Process不区分
+纯函数（自律）：函数里面不要使用外部的变量
+
+初学：实例获取感性的认知
+重学：不同的视角
+一般命令编程语言
+Atom 
+Expression 
+
+有for和if就是图灵完备，图灵完备的东西不是很好管理
