@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 解决0.1+0.2！=0.3的问题 -->
+    <script>
+        var a =0.1;
+        var b = 0.2;
+        // // const memory = new Float64Array(1);
+        // memory[0] = a;
+        // //产生一个buffer
+        // const intArr = new Uint8Array(memory.buffer)
+
+        // console.log("memory:"+ memory)
+        // console.log("intArr:"+ intArr)
+
+        // for(let i = 0; i<8;i++){
+        //     let s = intArr[i].toString(2);
+        //     console.log(new Array(9-s.length).join("0")+s)
+        // }
+
+        const intarr = new Uint8Array(8)
+        const memory = new Float64Array(intarr.buffer)
+        intarr[0] = 0b00000000;
+        intarr[1] = 0b00001000;
+
+        console.log("memory:"+ memory)
+        console.log("intArr:"+ intarr)
+
+        // console.log(memory)
+
+        
+
+    </script>
+</body>
+</html>

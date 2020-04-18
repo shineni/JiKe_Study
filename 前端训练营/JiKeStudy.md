@@ -144,9 +144,7 @@
 	- 非形式语言（中文，英文）
 	- 形式语言(乔姆斯基谱系)（层级）
 		- 0型 无限制文法
-			？::=?
 		- 1型 上下文相关文法（对引擎限制强，不太友好）
-			?<A>?::=?<B>?
 		- 2型 上下文无关文法（一个词放在任何位置都一样）
 		- 3型 正则文法（能用正则表达式解释的语法，对表达能力要求比较高）
 			- 只允许左递归
@@ -155,5 +153,24 @@
 - 产生式
 
 ![产生式BNF.PNG](.\imgs\第二周\产生式BNF.PNG)
+
+### 2.JavaScript
+### 2.1课前准备
+Unicode Blocks 字符集
+Block
+Categories
+Unicode的官方网站：
+https://www.fileformat.info/info/unicode/
+
+重要 回车  和SPACE
+
+CJK 中日韩三国语言
+
+
+![Unicode.PNG](.\imgs\第二周\Unicode.PNG)
+
+- Atom
+- Expression
+- Statement
 
 ## 第三周
