@@ -1,0 +1,38 @@
+【Exercise 1： 编写带括号的四则运算产生式】
+    steps:
+        1.定义一个十进制整数 0 11
+        2.实现乘除产生式（优先级高）
+        3.实现加减产生式
+        4.添加与和或逻辑运算产生式
+        5.添加括号
+        
+        <Number>::="0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9"
+
+        <DecimalNumber>::="0"|(("1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9")<Number>*)
+
+        <PrimaryExpression>::= <DecimalNumber>|"("<LogicExpression>")"
+        
+        <MultiptiveExpression>::=<PrimaryExpression>|
+                                <MultiptiveExpression>"*"<PrimaryExpression>|
+                                <MultiptiveExpression>"/"<PrimaryExpression>
+
+        <AdditiveExpression>::= <MultiptiveExpression>|
+                                <AdditiveExpression>"+"<MultiptiveExpression>|
+                                <AdditiveExpression>"-"<MultiptiveExpression>
+
+        <LogicExpression>::= <AdditiveExpression>|
+                            <LogicExpression>"||"<AdditiveExpression>|
+                            <LogicExpression>"&&"<AdditiveExpression>
+
+【Exercise 2： 给你所知道的计算机语言分类】
+    C               2型
+    C++             非形式化    
+    VB              1型
+    Javascript      1型
+    C#              2型
+    Java            2型           
+
+【Exercise 3： 写一个正则表达式 匹配所有 Number 直接量】
+ / (^("0B"|"0b")[0-1]*)|(^("0O"|"0o")[0-7]*)|(^("0X"|"0x")[0-9a-fA-F]*)|((^[1-9][0-9]*)([0-9]?.?[0-9]*[eE]?(^[1-9](0-9)*)?))/
+
+ 【Exercise 4： 写一个 UTF-8 Encoding 的函数】

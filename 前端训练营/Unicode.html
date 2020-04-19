@@ -1,16 +1,28 @@
-<script>
-    for(let i = 0;i<128;i++){
-       document.write("<span style='background-color:#bfa;'>"+String.fromCharCode(i)+"</span>")
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for(let i = 0;i<128;i++){
+           document.write("<span style='background-color:#bfa;'>"+String.fromCharCode(i)+"</span>"+"<br/>")
+        }
+    
+        var \u5389\u5bb3 = 1; //这就是厉害两个字
 
-    var \u5389\u5bb3 = 1; //这就是厉害两个字
 
-</script>
+        var binaryInter = /^("0B"|"0b")[0-1]*/
+        var EightyInter = /^("0O"|"0o")[0-7]*/
+        var HexInter = /^("0X"|"0x")[0-9a-fA-F]*/
+        var DecimalLiteral = /(^[1-9][0-9]*)([0-9]?.?[0-9]*[eE]?(^[1-9](0-9)*)?)/
 
-
-
-
-<!-- 
+      var regu =  / (^("0B"|"0b")[0-1]*)|(^("0O"|"0o")[0-7]*)|(^("0X"|"0x")[0-9a-fA-F]*)|((^[1-9][0-9]*)([0-9]?.?[0-9]*[eE]?(^[1-9](0-9)*)?))/
+    
+    </script>
+  <!-- 
     如何获取asci的值   "a".codePointAt[0].toString(16)
     顶级输入元素
      InputElement
@@ -101,5 +113,13 @@
     BOM Bit Order Mask
     Zero width no break space       FEFF
  -->
+
+</body>
+</html>
+
+
+
+
+
 
 

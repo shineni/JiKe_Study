@@ -1,0 +1,101 @@
+"a"  //终结符
+"b"  //终结符
+//BNF最重要的结构就是可递归
+//程序最高的结构Program
+    1. 只由a或者b组成
+    <Program>::="a"+ |"b"+
+    2.BNF最重要的结构就是可递归
+    <Program>::=<Program>"a"+ |<Program>"b"+
+
+【定义连加】
+//定义一个加法 允许连加
+    //1.定义一个number
+    <Number>::= "0"|"1"|"2"......|"9"
+    //2.定义一个十进制整数
+     0 
+     10930239289
+    <DecimalNumber>:：="0"|(("1"|"2"......|"9")<Number>*)
+
+    加法
+    两个十进制数相加
+    <Expression>::= <DecimalNumber> "+"<DecimalNumber>
+    支持连加，递归再右边加上一个十进制数
+    <Expression>::= <Expression> "+" <DecimalNumber>
+    支持只有1 的这种情况：
+    <Expression>::= <DecimalNumber> | <Expression> "+" <DecimalNumber>
+    改名字为 AdditiveExpression
+    <AdditiveExpression> ::= <DecimalNumber> |<AdditiveExpression>"+"<DecimalNumber>
+    乘法
+    <MultiptiveExpression> ::= <DecimalNumber> |<MultiptiveExpression>"*"<DecimalNumber>
+
+【四则运算】1+ 2*3
+    【乘除】
+        <MultiptiveExpression>::= <MultiptiveExpression> | 
+                <MultiptiveExpression> "*" <DecimalNumber> |
+                <MultiptiveExpression>"/"  <DecimalNumber> 
+    【加减】
+        <AdditiveExpression> ::= <MultiptiveExpression> |
+                <AdditiveExpression>"+"<MultiptiveExpression>|
+                <<AdditiveExpression>"-"<MultiptiveExpression>
+
+    【逻辑，如果不带加号直接走逻辑】
+    <LogicExpression> ::= <AdditiveExpression>|
+        <LogicExpression>"||"<AdditiveExpression>|
+        <LogicExpression>"&&"<AdditiveExpression>
+
+    【带括号】
+    <PrimaryExpression>::= <DecimalNumber> |
+        "("<LogicExpression>")"
+            【乘除改动】
+        <MultiptiveExpression>::= <MultiptiveExpression> | 
+                <MultiptiveExpression> "*" <PrimaryExpression> |
+                <MultiptiveExpression>"/"  <PrimaryExpression> 
+
+
+
+//十进制整数正则表达式(只允许左递归，自身一定出现在左边)
+//小技巧，先把一些东西处理成终结符
+<DecimalNumber>:: = /"0"|[1-9][0-9]*/
+
+
+
+
+
+正则表达式的扫描过程叫做词法分析
+根据产生式建立语法树，裁剪不需要的，形成抽象语法树的过程叫做语法分析
+1型
+{
+    get a{return 1},
+    get:1
+}
+2型
+2**1**2
+
+//JS关键部分在Grammer Summary
+词法定义用的::
+语法定义用的：
+终结符 ：用加粗来实现
+
+
+设计一个语言，首先判断是不是图灵完备性，一旦是图灵完备性就要考虑类型系统
+类型系统
+强类型：无隐式转换的类型
+弱类型：有隐式转换的类型
+
+复合类型（键值对）
+    - 结构体
+    - 函数签名（参数列表和返回值类型）
+子类型
+    - 逆变/协变（同向）
+
+C系列
+Function 和Process不区分
+纯函数（自律）：函数里面不要使用外部的变量
+
+初学：实例获取感性的认知
+重学：不同的视角
+一般命令编程语言
+Atom 
+Expression 
+
+有for和if就是图灵完备，图灵完备的东西不是很好管理
