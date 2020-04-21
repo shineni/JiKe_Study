@@ -7,19 +7,68 @@
 </head>
 <body>
     <script>
-        for(let i = 0;i<128;i++){
-           document.write("<span style='background-color:#bfa;'>"+String.fromCharCode(i)+"</span>"+"<br/>")
-        }
+        // for(let i = 0;i<128;i++){
+        //    document.write("<span style='background-color:#bfa;'>"+String.fromCharCode(i)+"</span>"+"<br/>")
+        // }
     
-        var \u5389\u5bb3 = 1; //这就是厉害两个字
+        // var \u5389\u5bb3 = 1; //这就是厉害两个字
 
 
-        var binaryInter = /^("0B"|"0b")[0-1]*/
-        var EightyInter = /^("0O"|"0o")[0-7]*/
-        var HexInter = /^("0X"|"0x")[0-9a-fA-F]*/
-        var DecimalLiteral = /(^[1-9][0-9]*)([0-9]?.?[0-9]*[eE]?(^[1-9](0-9)*)?)/
+    //     var binaryInter = /^("0B"|"0b")[0-1]*/
+    //     var EightyInter = /^("0O"|"0o")[0-7]*/
+    //     var HexInter = /^("0X"|"0x")[0-9a-fA-F]*/
+    //     var DecimalLiteral = /(^[1-9][0-9]*)([0-9]?.?[0-9]*[eE]?(^[1-9](0-9)*)?)/
 
-      var regu =  / (^("0B"|"0b")[0-1]*)|(^("0O"|"0o")[0-7]*)|(^("0X"|"0x")[0-9a-fA-F]*)|((^[1-9][0-9]*)([0-9]?.?[0-9]*[eE]?(^[1-9](0-9)*)?))/
+    //   var regu =  / (^("0B"|"0b")[0-1]*)|(^("0O"|"0o")[0-7]*)|(^("0X"|"0x")[0-9a-fA-F]*)|((^[1-9][0-9]*)([0-9]?.?[0-9]*[eE]?(^[1-9](0-9)*)?))/
+        
+        function hex_to_bin(str) {
+                let hex_array = [{key:0,val:"0000"},{key:1,val:"0001"},{key:2,val:"0010"},{key:3,val:"0011"},{key:4,val:"0100"},{key:5,val:"0101"},{key:6,val:"0110"},{key:7,val:"0111"},
+                    {key:8,val:"1000"},{key:9,val:"1001"},{key:'a',val:"1010"},{key:'b',val:"1011"},{key:'c',val:"1100"},{key:'d',val:"1101"},{key:'e',val:"1110"},{key:'f',val:"1111"}]
+
+                let value=""
+                for(let i=0;i<str.length;i++){
+                    for(let j=0;j<hex_array.length;j++){
+                        if(str.charAt(i).toLowerCase()== hex_array[j].key){
+                            value = value.concat(hex_array[j].val)
+                            break
+                        }
+                    }
+                }
+                console.log(value)
+                return value
+        }
+//input like U+XXXX
+        function UTF8EnCoding(unicode){
+            var value = "0x"+ unicode.substring(2)
+            console.log(value)
+            var output =""
+            var zero="000"
+            var binstring = parseInt(value,16).toString(2);
+            // 一个字节
+            if(binstring.length<8){             
+              output = "0"+binstring
+            }
+            // 两个个字节
+            else{
+                var byte = parseInt((binstring.length+3)/5)
+                console.log(byte)
+                let allstring = "000"+binstring;
+                let startpart = ""
+                let secondpart = ""
+                for(let i=1;i<=byte;i++){
+                    startpart="1"+ startpart
+                }
+                startpart = startpart +"0"+ allstring.substring(0,7-byte)
+
+                for(let i=1;i<byte;i++){
+                    secondpart = secondpart+"10"+allstring.substring(8-byte+5*(i-1),8-byte+5*(i-1)+6)
+                }
+                output = startpart+secondpart
+            }
+            console.log(output)
+            return output;
+        }
+        console.log(UTF8EnCoding("U+200001"))
     
     </script>
   <!-- 

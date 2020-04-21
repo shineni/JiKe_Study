@@ -1,4 +1,4 @@
-【Exercise 1： 编写带括号的四则运算产生式】
+﻿【Exercise 1： 编写带括号的四则运算产生式】
     steps:
         1.定义一个十进制整数 0 11
         2.实现乘除产生式（优先级高）
@@ -36,3 +36,37 @@
  / (^("0B"|"0b")[0-1]*)|(^("0O"|"0o")[0-7]*)|(^("0X"|"0x")[0-9a-fA-F]*)|((^[1-9][0-9]*)([0-9]?.?[0-9]*[eE]?(^[1-9](0-9)*)?))/
 
  【Exercise 4： 写一个 UTF-8 Encoding 的函数】
+//input like U+XXXX
+
+        function UTF8EnCoding(unicode){
+            var value = "0x"+ unicode.substring(2)
+            console.log(value)
+            var output =""
+            var zero="000"
+            var binstring = parseInt(value,16).toString(2);
+            // 一个字节
+            if(binstring.length<8){             
+              output = "0"+binstring
+            }
+            // 两个个字节
+            else{
+                var byte = parseInt((binstring.length+3)/5)
+                console.log(byte)
+                let allstring = "000"+binstring;
+                let startpart = ""
+                let secondpart = ""
+                for(let i=1;i<=byte;i++){
+                    startpart="1"+ startpart
+                }
+                startpart = startpart +"0"+ allstring.substring(0,7-byte)
+
+                for(let i=1;i<byte;i++){
+                    secondpart = secondpart+"10"+allstring.substring(8-byte+5*(i-1),8-byte+5*(i-1)+6)
+                }
+                output = startpart+secondpart
+            }
+            console.log(output)
+            return output;
+        }
+        console.log(UTF8EnCoding("U+200001"))
+ 【Exercise 5： 写一个正则表达式，匹配所有的字符串直接量，单引号和双引号】

@@ -291,12 +291,11 @@ https://www.fileformat.info/info/unicode/
        - Boolean
        - Object
        - String
-           - character
-           -  码点
-           -  编码
+           - Character
+           - Code Point
+           - Encoding
                - ASCII
                - Unicode（UTF）  JavaSctip默认是UTF编码，超出部分就用两个字符编码
-               - 【作业2】通过查阅资料写一个UTF8的Encoding
                - UCS U+0000 -U+FFFF 超出Unicode的一部分
                - GB(ASCII兼容)
                - GB 2312
@@ -325,6 +324,7 @@ a
 /a/g   //除法 1/g 能插除号的地方就插除号，不能插除号的地方就插正则表达式
 ```
 【作业1】写一个正则，匹配所有的Number 167页number不支持负数
+【作业2】通过查阅资料写一个UTF8的Encoding的函数
 【作业3】写一个正则表达式，匹配所有的字符串直接量，单引号和双引号
 
 
