@@ -328,5 +328,115 @@ a
 【作业3】写一个正则表达式，匹配所有的字符串直接量，单引号和双引号
 
 
-
 ## 第三周
+###1.遗留问题：float在内存里面的分布
+
+![正负零.PNG](.\imgs\第三周\正负零.PNG)
+
+![浮点原图.PNG](.\imgs\第三周\浮点原图.PNG)
+
+buffer内存
+https://jsfiddle.net/pLh8qeor/19/
+###2.Grammer 语法部分
+(201)
+优先级
+
+![优先级.PNG](.\imgs\第三周\优先级.PNG)
+运算符优先级
+newtarget 防御性
+
+![NewTarget.PNG](.\imgs\第三周\NewTarget.PNG)
+
+
+![实例1.PNG](.\imgs\第三周\实例1.PNG)
+super 调用父类的方法或者属性
+
+- Member属性访问，成员访问,property运算，取一个属性 运算能保持可写的特性，返回的是Reference 类型
+
+![Reference类型.PNG](.\imgs\第三周\Reference类型.PNG)
+- New
+- Call 函数调用
+- Update
+- Unary
+- Exponatal
+- Multiplicative
+- Additive
+- Shift
+- Relationship
+- Equality
+- Bitwise
+- Logical
+- Conditional
+
+
+![函数调用.PNG](.\imgs\第三周\函数调用.PNG)
+
+
+![Left&RightHandside.PNG](.\imgs\第三周\Left&RightHandside.PNG)
+- update
+- Unary单目运算符(178)
+
+![Unary.PNG](.\imgs\第三周\Unary.PNG)
+	- void 起到一个改变语法结构的作用
+		- 
+
+乘法需要注意的一点是右结合
+in 很多地方不能用in 
+
+逻辑运算
+- 短路逻辑
+
+逗号
+
+=>图灵完备的语言
+加法
+	- 数字类型的加法
+	- 字符串的加法
+
+
+
+- 表达式
+    - 语法
+    - 运行时
+【练习】
+StringToNumber
+parseFloat
+
+NumberToString
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 第四周

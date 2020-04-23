@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 实例1：Super
+        // class Parent{
+        //     constructor(){
+        //         this.a=1
+        //     }
+        // }
+        // class Child extends Parent{
+        //     constructor(){
+        //         super();
+
+        //     }
+
+        // }
+
+        // 实例2：模板字符串以及参数 foo`string`
+        // var name ="shien";
+        // `Hello, ${name}`;
+        // function foo(){
+        //         console.log(arguments)
+        // }
+        // foo`Hello ${name} `
+
+        // 实例3：带括号优先级更高
+        // function cls1(s){
+        //     console.log(s)
+        // }
+        // function cls2(s){
+        //     console.log("2",s)
+        //     return cls1;
+        // }
+        // new cls2 
+        // cls2()
+        // new {cls2()}
+        // new {new cls2}
+        // new new cls2("good")
+        
+        // 实例4：带括号优先级更高
+        // var o ={x:1}
+        // o.x+2
+        // 1+2
+        // delete o.x
+        // delete 1
+        
+        //实例5：Call
+        // class foo(){
+        //     constructor(){
+        //         this.b = 1
+        //     }
+        // }
+        // new foo()["b"]  
+        // new {foo{}["b"]}
+
+        //实例6：自增
+        // var  a = 1, b= 1,c = 1;
+        // a
+        // ++
+        // b
+        // ++
+        // c
+
+        // a/*
+
+        // */++
+        // b/*
+        
+        // */++
+        // c
+
+        // 实例7 void 自执行函数
+        // for (var i = 0;i<10;i++){
+        //     var button = document.createElement("button")
+        //     document.body.appendChild(button)
+        //     button.innerHTML=i;
+        //     button.onclick= function(){
+        //         console.log(i)
+        //     }
+
+        // }
+        // // 用一个函数产生一个作用域
+        // //推荐用void，不用()实现自执行函数 有一个好处就是语法合理
+        // for (var i = 0;i<10;i++){
+        //     var button = document.createElement("button")
+        //     document.body.appendChild(button)
+        //     button.innerHTML=i;
+        //     void function(i){
+        //         button.onclick= function(){
+        //         console.log(i)
+        //         }
+        //     }(i)
+        // }
+
+  // 实例8 typeof 无法区分同一个对象的不同的class
+        // typeof null
+        // typeof function(){}
+
+    //实例9： 短路逻辑,可以将&&和||作为if else 用，但是不推荐
+    // function foo1(){
+    //     console.log(1);
+    //     return false
+    // }
+    // function foo2(){
+    //     console.log(2)
+
+    // }
+    // foo1() && foo2()
+    // fool() || foo2()
+
+     //实例10： 三目运算
+    //  true?foo1():foo2() //如果为true foo2()是不调用的
+    //  false?foo1():foo2() //如果为true foo1()是不调用的
+
+    //实例11： 装箱(只有4种是可以装箱的)和拆箱
+    // new Number(1)  //将数字包装成对象
+    // String 
+    // Number
+    // Boolean
+    // String("1")
+    // //String Number Boolean函数还可以起强制类型转换的效果
+    // Object("1")
+    // Symbol //不让new
+    // Object(Symbol(1))//有prototype 甚至还有Instanceof
+    // Object.getPrototypeOf(Object(Symbol("1")))
+    // //装箱方案2
+    // (function(){return this}).apply(Symbol("x"))
+
+
+    //实例12： 拆箱
+    // 1+{}
+    // 1+{Valueof(){return 2}}
+    // 1+{toString(){return 4}}
+    // Symbol.toPrimitive
+
+    
+    //实例13： StringToNumber
+    // function coverStringToNumber(string,X){
+    //     if(arguments)
+    //     var chars = string.split('');
+    //     var number = 0;
+    //     var i=0;
+    //     // for(var i = 0;i<chars.length;i++){
+    //     //     number = number*10
+    //     //     null+=char[i].codePointAt(0) - '0'.codePointAt(0)
+
+    //     // }
+    //     while(i<chars.length&&char[i]!='.'){
+    //         number= number*x;
+    //         null+=char[i].codePointAt(0) - '0'.codePointAt(0)
+    //         i++;
+    //     }
+    //     if(chars[i]='.'){
+    //         i++;
+    //     }
+    //     var fraction = 0;
+    //     while(i<chars.length){
+    //         fraction = fraction*10
+    //     }
+
+    //     return number
+
+    // }
+    // coverStringToNumber("100")
+
+    // 补充
+    function convertNubmerToString(number,x){
+        var integer = Math.floor(number)
+        var fraction = number -integer;
+        var string=""
+        while(integer>0)
+        {
+            string += String(integer%x);
+            integer = Math.floor(integer/x);
+
+        }
+        return string
+    }
+    convertNubmerToString(100,10)
+    
+    </script>
+</body>
+</html>
