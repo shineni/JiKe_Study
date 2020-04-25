@@ -404,9 +404,33 @@ parseFloat
 
 NumberToString
 
+- Iteration
 
+JS Object 对象机制
+三要素
+- 对象唯一标识性
+- 有状态  
+- 有行为  
 
+封装（解耦， 内聚， 复用）
+- 代码层面的合理性
+继承
+- 面向对象的子系统
+多态（描述动态性的程度）
 
+面向对象《面向对象分析与设计》
+- 基于类的面向对象
+	- 基于类的mixin 行为 状态
+	- 
+
+Oject API/Grammer
+- {}.[] Object.defineProperty
+- Object.create/Object.setPrptptypeOf/Object.getPrototypeOf   基于原型的面向对象的系统
+- new/class/extends
+- new/function/prototype
+不要二三混用，不要使用第四个
+
+function Object
 
 
 

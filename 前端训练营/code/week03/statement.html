@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // for(let i = 0;i<10;i++){
+        //     console.log(i)
+        // }
+
+        // {
+        //     let i = 1;
+        //     {
+        //         let i= 1;
+        //         console.log(i)
+        //     }
+        //     console.log(i)
+
+        // }
+
+        //for in 遍历变量的所有属性
+        // for (let p in {a:1,b:2}){
+        //     console.log(p)
+        // }
+
+        // for (let p in [1,2,3]]){
+        //     console.log(p)
+        // }
+
+        // function* foo(){
+
+        // }
+
+        // 异步
+        // function sleep(d){
+        //     return new Promise(resolve => setTimeout(resovle,d))
+        // }
+        // void async function (){
+        //     var i = 0;
+        //     while(true){
+        //         console.log(i++);
+        //         await sleep(1000)
+        //     }
+        // }
+
+        //异步 Generateor: 只能在异步的函数里面调用
+        // async function* foo(){
+        //     var i = 0;
+        //     while(true)
+        //     {
+        //         console.log(i++);
+        //         await sleep(1000)
+        //     }
+        // }
+
+        //变量声明 
+        var x= 0;
+        function foo(){
+            var o={x:1};
+            x=2;
+            with(o){
+                var x=3; //改变了x=2,针对整个function的范围
+                //x=3;
+            }
+            console.log(x)
+
+        }
+        //1如果有var 一定要写在function的范围内,并且写在第一次变量出现的地方
+        //2.
+
+
+
+    </script>
+    
+</body>
+</html>
