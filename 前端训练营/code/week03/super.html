@@ -7,19 +7,39 @@
 </head>
 <body>
     <script>
-        // 实例1：Super
-        // class Parent{
-        //     constructor(){
-        //         this.a=1
-        //     }
+        function foo(){
+            console.logn(new.target);
+        }
+        foo(); // undefined
+        new foo();
+        // ƒ foo(){
+        //     console.log(new.target);
         // }
-        // class Child extends Parent{
-        //     constructor(){
-        //         super();
 
-        //     }
+        //伪造一个函数
+        var fakeOject = {};
+        Object.setPrototypeOf(fakeOject,foo.prototype);
+        fakeOject.constructor= foo;
+        foo.apply(fakeOject);
+        fakeOject instanceof foo; //true  instanceof是走原型链的
 
-        // }
+        //ES5中不好判断是被new调用还是被普通的方法调用
+
+
+
+        // 实例1：Super：调用父类
+        class Parent{
+            constructor(){
+                this.a=1
+            }
+        }
+        class Child extends Parent{
+            constructor(){
+                super();
+                console.log(this.a);
+            }
+
+        }
 
         // 实例2：模板字符串以及参数 foo`string`
         // var name ="shien";

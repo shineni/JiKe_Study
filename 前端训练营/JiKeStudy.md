@@ -331,33 +331,119 @@ a
 ## 第三周
 ###1.遗留问题：float在内存里面的分布
 
-![正负零.PNG](.\imgs\第三周\正负零.PNG)
+![浮点.PNG](.\imgs\第三周\浮点.PNG)
+- 有效数字： 10进制第一位一定是非0的值，二进制第一位一定是1
+- 浮点数是要设置一个可以接受的精度损失
 
-![浮点原图.PNG](.\imgs\第三周\浮点原图.PNG)
+**【如何检查正负零】**
+```
+function check(zero){
+    if(1/zero ===Infinity){
+        return 1;
+    }
+    if(1/zero===-Infinity){
+        return -1
+    }
+}
+//稳定的sign函数可以直接取符号位
+function sign(number){
+    if(Math.abs(number)===0){
+        check(number)
+    }
+    else{
+        return number/Math.abs(number)
+    }
+}
+```
 
 buffer内存
 https://jsfiddle.net/pLh8qeor/19/
+
 ###2.Grammer 语法部分
-(201)
-优先级
-
-![优先级.PNG](.\imgs\第三周\优先级.PNG)
-运算符优先级
-newtarget 防御性
-
-![NewTarget.PNG](.\imgs\第三周\NewTarget.PNG)
-
-
-![实例1.PNG](.\imgs\第三周\实例1.PNG)
-super 调用父类的方法或者属性
 
 - Member属性访问，成员访问,property运算，取一个属性 运算能保持可写的特性，返回的是Reference 类型
+	- a.b
+		- o.x 返回的是Reference 类型
+		- Reference由两部分组成
+			- Object
+			- Key
+		- o.x +2 它会找到reference的值然后去做加法
+		- 写的能力只有delete 和assign
+	- a[b]
+	- foo`string`
+	- super.b
+	- super['b']
+	- new.target
+	- new Foo()
+![Reference.PNG](.\imgs\第三周\Reference.PNG)
 
-![Reference类型.PNG](.\imgs\第三周\Reference类型.PNG)
+```
+//【实例1】new.Target
+function foo(){
+    console.logn(new.target);
+}
+foo(); // undefined
+new foo();
+// ƒ foo(){
+//     console.log(new.target);
+// }
+
+//伪造一个函数
+var fakeOject = {};
+Object.setPrototypeOf(fakeOject,foo.prototype);
+fakeOject.constructor= foo;
+foo.apply(fakeOject);
+fakeOject instanceof foo; //true  instanceof是走原型链的
+
+//ES5中不好判断是被new调用还是被普通的方法调用
+
+// 【实例2】：Super：调用父类的方法或者属性
+class Parent{
+    constructor(){
+        this.a=1
+    }
+}
+class Child extends Parent{
+    constructor(){
+        super();
+		console.log(this.a);
+    }
+
+}
+Parent.a=1;
+new Child; //1
+
+// 实例3：模板字符串以及参数 foo`string`
+var name ="shien";
+`Hello, ${name}`;
+function foo(){
+        console.log(arguments)
+}
+foo`Hello ${name} `
+
+// 实例4：带括号优先级高
+function cls1(s){
+    console.log(s)
+}
+function cls2(s){
+    console.log("2",s)
+    return cls1;
+}
+cls1("s1")
+cls2("s2")
+new cls2("s2")
+new (new cls2("s2"))
+new new cls2("good")
+```
+
 - New
 - Call 函数调用
+	- new a()["b"]先new 再取b
 - Update
-- Unary
+- Unary(Page 178)
+    - void 起到一个改变语法结构的作用
+    - IFFE：Immediately-invoked Function Expressions 立即执行的函数表达式
+    - typeof typeof null 返回的是object typeof function(){} 返回的是function
 - Exponatal
 - Multiplicative
 - Additive
@@ -367,37 +453,52 @@ super 调用父类的方法或者属性
 - Bitwise
 - Logical
 - Conditional
+```
+// 用一个函数产生一个作用域
+//推荐用void，不用()实现自执行函数 有一个好处就是语法合理
+for (var i = 0;i<10;i++){
+    var button = document.createElement("button");
+    document.body.appendChild(button)
+    button.innerHTML=i;
+    void function(i){
+        button.onclick= function(){
+        console.log(i)
+        }
+    }(i)
+}
+```
 
 
-![函数调用.PNG](.\imgs\第三周\函数调用.PNG)
-
-
-![Left&RightHandside.PNG](.\imgs\第三周\Left&RightHandside.PNG)
-- update
-- Unary单目运算符(178)
-
-![Unary.PNG](.\imgs\第三周\Unary.PNG)
-	- void 起到一个改变语法结构的作用
-		- 
-
-乘法需要注意的一点是右结合
-in 很多地方不能用in 
-
-逻辑运算
-- 短路逻辑
-
-逗号
-
-=>图灵完备的语言
+=> 图灵完备的语言
 加法
 	- 数字类型的加法
 	- 字符串的加法
 
 
+###3.类型转换
 
-- 表达式
-    - 语法
-    - 运行时
+![类型转换.PNG](.\imgs\第三周\类型转换.PNG)
+- 装箱
+    JS中的类和类型是分开的，四个构造函数（四种类）： String Number Symbol Boolean
+    new Number(1)    把1包装成一个Number对象
+    new String("hello")  把hello包装成一个String对象
+
+    构造函数 String Number Boolean 不作为new调用时，就转为普通的类型，如果带new就会返回对应的对象
+    【推荐】使用手动转换
+
+    Oject 不管带new 和不带new都是一样的
+    强制装箱:  Object("1")  New Object("1")
+
+    Symbol new不了，但是可以直接调用
+    装箱方式一： Object(Symbol("1"))
+    装箱方式二：(function(){return this}).apply(Symbol("x"))
+
+- 拆箱：如果有Primitive,则只会调用toPrimitive,如果没有Primitive会调用默认的toPrimitive代码,而该默认的代码会先调用valueof然后调用toString
+	- toPrimitive() 优先级最高，如果return一个对象那么就会直接报错
+	- "1"+{[Symbol.toPrimitive](){return {}},valueof(){return "1"},toString(){return "2"}}
+    -valueOf()  优先级次之
+    -toString() 没有优先级
+
 【练习】
 StringToNumber
 parseFloat

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 作业1：
+        // 考虑小数，和进制的问题
+        function ConvertStringToNumber(string,x){
+            //验证合法性
+            // 拆成数组
+            var chars = string.split('');
+            var number = 0;
+            var science = 0;
+            var i=0;
+            while(i<chars.length&&chars[i]!='.'){
+                number = number*x;
+               number += chars[i].codePointAt(0)-'0'.codePointAt(0);
+               i++;
+            }
+           if(chars[i]==='.'){
+               i++;
+           }
+           var fraction = 1;
+           while(i<chars.length&&chars[i]!='e'){
+                fraction = fraction/x;
+                number += (chars[i].codePointAt(0)-'0'.codePointAt(0))*fraction;
+               i++;
+           }
+
+           if(chars[i]='e'){
+               i++;
+              
+           }
+           while(i<chars.length&&chars[i]!='e'){
+                science = science*x;
+                science += chars[i].codePointAt(0)-'0'.codePointAt(0);
+                i++;
+            }
+            console.log(science)
+            if(science>0 && x==10){
+                for(let i =0;i<science;i++){
+                    number = number*10;
+                }
+            }
+           return number ;
+        }
+        //数字转字符串
+        function ConvertNumberToString(number,x){
+           var integer =Math.floor(number);
+           var fraction = number-integer;
+           console.log(number)
+           var string='';
+           while(integer>0){
+               string = String(integer%x)+ string;
+               integer = Math.floor(integer/x)
+           }
+
+           if(fraction>0){
+               string = string+".";
+               integer = (fraction*x)%x;
+               console.log(integer)
+           }
+           while(integer>0){
+               string=string+integer;
+               fraction = fraction*x-integer;
+               integer = (fraction*x)%x;
+           }
+           return string ;
+        }
+
+    </script>
+    
+</body>
+</html>
