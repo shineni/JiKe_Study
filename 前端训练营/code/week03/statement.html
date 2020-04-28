@@ -7,6 +7,45 @@
 </head>
 <body>
     <script>
+        //复合语句： 
+        //1. block
+        // 作用：当需要一条语句的地方，可以放{}放置多条语句， 为const 和let 设置作用域
+        // [[type]]:normal
+        // [[value]]:--
+        // [[target]]:--
+        {
+            var a =1;
+        }
+
+         //2.for in 遍历变量的所有属性
+        // for (let p in {a:1,b:2}){
+        //     console.log(p)
+        // }
+
+        // for (let p in [1,2,3]]){
+        //     console.log(p)
+        // }
+
+        // function* foo(){
+
+        // }
+
+        //2.for of 遍历数据，访问每个元素,任何具有迭代特点都可以用for of, for of对应的是Interator机制，不论数组或者generator都有 Interator
+        //  配对的generator
+        // for of =>Iterator=>Generator/Arrary
+            for(let p of [1,2,3]){
+                console.log(p);
+            }
+
+            function *g(){
+                yield 0;
+                yield 1;
+                yield 2;              
+            }
+            for(let p of g()){
+                console.log(p);
+            }
+
 
         // function check(zero){
         //     if(1/zero ===Infinity){
@@ -40,18 +79,7 @@
 
         // }
 
-        //for in 遍历变量的所有属性
-        // for (let p in {a:1,b:2}){
-        //     console.log(p)
-        // }
-
-        // for (let p in [1,2,3]]){
-        //     console.log(p)
-        // }
-
-        // function* foo(){
-
-        // }
+       
 
         // 异步
         // function sleep(d){
