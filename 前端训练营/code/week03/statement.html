@@ -30,7 +30,7 @@
 
         // }
 
-        //2.for of 遍历数据，访问每个元素,任何具有迭代特点都可以用for of, for of对应的是Interator机制，不论数组或者generator都有 Interator
+        //2.for of 遍历数据，访问每个元素,任何具有迭代特点都可以用for of访问, for of对应的是Interator机制，不论数组或者generator都有 Interator
         //  配对的generator
         // for of =>Iterator=>Generator/Arrary
             for(let p of [1,2,3]){
@@ -45,6 +45,73 @@
             for(let p of g()){
                 console.log(p);
             }
+
+        //3.带标签的
+            function Class(){
+                public: this.a = 1;
+                this.b = 2;
+                private: var x=3;
+                var y=4;
+            }
+            var o = new Class;
+            o.a //1
+            o.b //2
+            o.x //访问不到
+            o.y //访问不到
+
+        //4.try catch function是最有可能产生产生throw的效果的
+            // try{
+            //     //语句
+
+            // }catch(声明){
+            //     表达式
+            // }
+            try{
+                throw 2;
+            }catch(e){
+                let e;
+                console.log(e)
+            }
+            //作用域和上下文的区别
+            // 作用域是语言代码里的范围
+            // 上下文是用户电脑上存变量的地方
+
+            //5.函数声明和函数表达式
+            //函数声明
+            function foo(){
+
+            }
+            //函数表达式
+            var o = function foo(){
+
+            }
+            //这边的class必须要有名字
+            class foo{
+
+            }
+            //匿名class 
+            void class{
+
+            }
+            //class这边可以没有名字
+            var o = class foo{
+
+            }
+
+
+            //generator是特殊的funcion里面允许使用yield,可以理解为可以返回多个值的函数，在外面，调用一次就产生一个函数
+           //function * 完全继承了function的作用
+            function * foo(){
+
+                yield 1;
+                yield 2;
+                var i=2;
+                while(true){
+                    yield i++
+                }
+            }
+            var gen = foo();
+            gen.next()
 
 
         // function check(zero){
@@ -64,7 +131,7 @@
         //         return number/Math.abs(number)
         //     }
         // }
-
+            //只属于外层不属于内层的代码只有三句： let i = 0;i<10;i++
         // for(let i = 0;i<10;i++){
         //     console.log(i)
         // }
@@ -81,7 +148,15 @@
 
        
 
-        // 异步
+        // 6. 异步
+        var i=0;
+        function tick(){
+            console.log(i++);
+            setTimeout(tick,1000)
+        }
+        tick()
+
+        //async函数都是返回一个Promise
         // function sleep(d){
         //     return new Promise(resolve => setTimeout(resovle,d))
         // }
@@ -94,14 +169,34 @@
         // }
 
         //异步 Generateor: 只能在异步的函数里面调用
+        // function sleep(d){
+        //     return new Promise(resolve => setTimeout(resovle,d))
+        // }
         // async function* foo(){
         //     var i = 0;
         //     while(true)
         //     {
         //         console.log(i++);
+        //          yield i++;
         //         await sleep(1000)
         //     }
         // }
+            void async function(){
+                var g= foo();
+                console.log(await g.next());
+                console.log(await g.next());
+                console.log(await g.next());
+                console.log(await g.next());
+                console.log(await g.next());
+            }
+
+            void async function(){
+                var g= foo();
+                for await(let e of g){
+                    console.log(e)
+                }
+            }
+
 
         //变量声明 
         // var x= 0;
