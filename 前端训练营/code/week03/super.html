@@ -40,6 +40,8 @@
             }
 
         }
+        Parent.a=1;
+        new Child; //1
 
         // 实例2：模板字符串以及参数 foo`string`
         // var name ="shien";
@@ -50,18 +52,18 @@
         // foo`Hello ${name} `
 
         // 实例3：带括号优先级更高
-        // function cls1(s){
-        //     console.log(s)
-        // }
-        // function cls2(s){
-        //     console.log("2",s)
-        //     return cls1;
-        // }
-        // new cls2 
-        // cls2()
-        // new {cls2()}
-        // new {new cls2}
-        // new new cls2("good")
+        function cls1(s){
+            console.log(s)
+        }
+        function cls2(s){
+            console.log("2",s)
+            return cls1;
+        }
+        new cls2 
+        cls2()
+        new {cls2()}
+        new (new cls2)
+        new new cls2("good")
         
         // 实例4：带括号优先级更高
         // var o ={x:1}
@@ -105,18 +107,18 @@
         //     }
 
         // }
-        // // 用一个函数产生一个作用域
-        // //推荐用void，不用()实现自执行函数 有一个好处就是语法合理
-        // for (var i = 0;i<10;i++){
-        //     var button = document.createElement("button")
-        //     document.body.appendChild(button)
-        //     button.innerHTML=i;
-        //     void function(i){
-        //         button.onclick= function(){
-        //         console.log(i)
-        //         }
-        //     }(i)
-        // }
+        // 用一个函数产生一个作用域
+        //推荐用void，不用()实现自执行函数 有一个好处就是语法合理
+        for (var i = 0;i<10;i++){
+            var button = document.createElement("button")
+            document.body.appendChild(button)
+            button.innerHTML=i;
+            void function(i){
+                button.onclick= function(){
+                console.log(i)
+                }
+            }(i)
+        }
 
   // 实例8 typeof 无法区分同一个对象的不同的class
         // typeof null
