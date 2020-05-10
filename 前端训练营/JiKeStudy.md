@@ -329,6 +329,8 @@ a
 
 
 ## 第三周
+思维导图：JS Grammer.xmind
+
 ###1.遗留问题：float在内存里面的分布
 
 ![浮点.PNG](.\imgs\第三周\浮点.PNG)
@@ -360,6 +362,17 @@ buffer内存
 https://jsfiddle.net/pLh8qeor/19/
 
 ###2.Grammer 语法部分
+![词法语法运行时框架.PNG](.\imgs\第三周\词法语法运行时框架.PNG)
+
+
+
+![Expresssion.PNG](.\imgs\第三周\Expresssion.PNG)
+
+
+
+#### 2.1 Expression**【代码参考：\code\week03\super.html】**
+
+![LeftHand.PNG](.\imgs\第三周\LeftHand.PNG)
 
 - Member属性访问，成员访问,property运算，取一个属性 运算能保持可写的特性，返回的是Reference 类型
 	- a.b
@@ -376,6 +389,7 @@ https://jsfiddle.net/pLh8qeor/19/
 	- new.target
 	- new Foo()
 ![Reference.PNG](.\imgs\第三周\Reference.PNG)
+
 
 ```
 //【实例1】new.Target
@@ -439,6 +453,9 @@ new new cls2("good")
 - New
 - Call 函数调用
 	- new a()["b"]先new 再取b
+
+![RightHand.PNG](.\imgs\第三周\RightHand.PNG)
+
 - Update
 - Unary(Page 178)
     - void 起到一个改变语法结构的作用
@@ -468,6 +485,17 @@ for (var i = 0;i<10;i++){
 }
 ```
 
+#### 2.2 Atom **【代码参考：\code\week03\statement.html】**
+
+
+![Atom.PNG](.\imgs\第三周\Atom.PNG)
+![运行时.PNG](.\imgs\第三周\运行时.PNG)
+- 声明
+	- funtion
+	- function *
+	- async function
+	- async function
+	- var
 
 => 图灵完备的语言
 加法
@@ -507,23 +535,49 @@ NumberToString
 
 - Iteration
 
-JS Object 对象机制
-三要素
+###4.面向对象
+
+![面向对象.PNG](.\imgs\第三周\面向对象.PNG)
+#### 4.1 对象的三要素
 - 对象唯一标识性
-- 有状态  
-- 有行为  
+- 有状态
+- 有行为
 
-封装，解耦， 内聚， 复用
-- 描述架构
-继承
-- 面向对象的子系统
-多态
-- 描述动态性的程度
+封装，解耦， 内聚， 复用【描述架构】
+继承【面向对象的子系统】
+多态【描述动态性的程度】
 
-面向对象《面向对象分析与设计》
-- 基于类的面向对象
-	- 基于类的mixin 行为 状态
-	- 
+【推荐阅读】面向对象《面向对象分析与设计》
+
+#### 4.2 面向对象第一范式（基于类）
+
+![基于类.PNG](.\imgs\第三周\基于类.PNG)
+
+
+#### 4.3 面向对象第二范式（基于对象）
+
+![基于原型.PNG](.\imgs\第三周\基于原型.PNG)
+
+#### 4.4 JavaScript中的对象
+
+![OjectinJS.PNG](.\imgs\第三周\OjectinJS.PNG)
+
+- JavaScript运行时，原生对象的描述方式非常简单，只需要**关心原型**和**属性**两个部分
+- JavaScript用属性来统一抽象对象的状态和行为，
+	- Javascript中的属性分为两种
+        - 数据属性：描述状态。如果数据属性中存储函数，也可以用于描述行为
+        - 访问器属性：用于描述行为
+	- 属性访问： 当访问属性时，如果当前对象没有该属性，则会沿着原型找原型对象是否有次名称的属性，而原型对象还可能有原型，因此会有原型，因此会有“原型链”这一说法。该算法保证了每个对象只需要描述自己和原型的区别即可。
+
+- **特殊的对象**
+    - 函数对象(特殊的对象)
+        - 特殊之处：除了一般对象上的属性和原型，函数对象还有一个行为[[call]]
+        - 我们用JavaScript中的function关键字，箭头运算符或者Function构造器创建的对象，会有[[call]]这个行为
+        - 用类似f()这样的语法把对象当做函数调用时，会访问到[[call]]这个行为
+        - 如果对于的对象没有[[call]]行为，则会报错
+    - Array[[length]]
+    - Object.prototype[[setPrototypeOf]]
+
 
 Oject API/Grammer
 - {}.[] Object.defineProperty
@@ -532,18 +586,60 @@ Oject API/Grammer
 - new/function/prototype
 不要二三混用，不要使用第四个
 
-function Object
 
 
+## 第四周(结构化)
+![OC.PNG](.\imgs\第五周\OC.PNG)
+OC： Objective-C 是一种通用、高级、面向对象的编程语言。它扩展了标准的 ANSI C 编程语言，将 Smalltalk 式的消息传递机制加入到 ANSI C 中。当前主要支持的编译器有 GCC 和 Clang（采用 LLVM 作为后端）。
+Promise相关： **【代码参考：\code\week03\statement.html】**
 
-## 第四周
+###4.1 JS执行粒度
+
+![JS执行粒度.PNG](.\imgs\第四周\JS执行粒度.PNG)
+
+**Realm**——它里面有一套完整的JS内置对象
+
+
+**函数调用**
+
+![函数调用分析图.PNG](.\imgs\第五周\函数调用分析图.PNG)
+- Exectution Context执行上下文
+	- ECMAScript Code Excution
+    	- code evaluation state
+    	- Function
+    	- Script or Module
+    	- Realm
+    	- LexicalEnvironment
+    	- VariableEnvironment
+    - Generator Executin Contexts
+		- code evaluation state
+    	- Function
+    	- Script or Module
+    	- Realm
+    	- LexicalEnvironment
+    	- VariableEnvironment
+    	- Generator
+
+![ExecutionContext.PNG](.\imgs\第五周\ExecutionContext.PNG)
+**LexicalEnvironment 和 VariableEnvironment**
+![词法和变量环境.PNG](.\imgs\第五周\词法和变量环境.PNG)
+**组成LexicalEnvironment 和 VariableEnvironment的结构**
+
+![EnvironmentRecords.PNG](.\imgs\第五周\EnvironmentRecords.PNG)
+**如何产生LexicalEnvironment里面的内容-----【该机制就是JS中Closure闭包的原理】**
+
+![Closure.PNG](.\imgs\第五周\Closure.PNG)
+
+
 ## 第五周
-###1. 结构化
-###2. 浏览器
-#### 2.1
+###1. 浏览器
+#### 1.1浏览器执行过程
 ![浏览器.PNG](.\imgs\第五周\浏览器.PNG)
-#### 2.2 ISO-OSI七层网络模型
-#### 2.3 ISO-OSI七层网络模型
+#### 1.2 ISO-OSI七层网络模型
+
+![网络模型.PNG](.\imgs\第五周\网络模型.PNG)
+
+#### 1.3 ISO-OSI七层网络模型
 TCP
 - 
 
