@@ -241,13 +241,16 @@
             }
             var g = foo();  
             g.next()
-
+            var o = new  Array()  //不需要Realm 因为本身是一个变量
+          
             // //
-            // Object.getPrototypeOf({})
-            // Object.getPrototypeOf({}) ===Object.prototype //true
-            // var iframe = document.createElement("iframe")
-            // document.body.appendChild(iframe)
-            // iframe.contentWindow.document.body.innerHTML="<script>alert(o)</script>"
+            Object.getPrototypeOf({})
+            Object.getPrototypeOf({}) ===Object.prototype //true
+            var iframe = document.createElement("iframe")
+            document.body.appendChild(iframe)
+            iframe.contentWindow.document.body.innerHTML="<script>window.o={}</script>"
+
+           
 
 
     </script>
