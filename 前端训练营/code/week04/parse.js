@@ -1,6 +1,31 @@
 const EOF = Symbol("EOF"); //EOF: End of File
-function data(c){
 
+function data(c){
+    if(c=="<"){
+        return tagOpen
+    }
+    else if(c===EOF){
+        return ;
+    }
+    else{
+        return data;
+    }
+
+}
+
+function tagOpen(c){
+    if(c=="/"){
+        return endTageOpen
+    }
+    else if(c.match(/d/)){
+        return tagName(c)
+    }
+    else{
+        return
+    }
+}
+function tagName(c){
+    
 }
 
 

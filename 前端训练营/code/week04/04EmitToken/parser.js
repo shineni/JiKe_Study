@@ -1,3 +1,8 @@
+let currentToken = null;
+
+function emit(token){
+     console.log(token)
+}
 
 const EOF = Symbol("EOF");// EOF: End Of File 文件结束，Symbol都是唯一的
 
@@ -6,8 +11,15 @@ function data(c){
      if(c=="<"){
           return tageOpen;
      }else if(c == EOF){
+          emit({
+               type:"EOF"
+          })
           return ;
      }else{
+          emit({
+               type:"text",
+               content:c 
+          })
           return data;  
      }
 
@@ -17,6 +29,10 @@ function tageOpen(c){
      if (c=="/"){
           return endTagOpen;
      }else if(c.match(/^[a-zA-Z]$/)){
+          currentToken = {
+               type: "startTag",
+               tagName:""
+          }
           return tagName(c);
      }else{
           return ;
@@ -41,16 +57,18 @@ function endTagOpen(c){
 }
 
 function tagName(c){
-     if(c.match(/^[\t\n\f]$/)){
+     if(c.match(/^[\t\n\f ]$/)){
           return beforeAttributeName;
      }
      else if(c=="/"){
           return selfClosingStartTag;
      }
      else if(c.match(/^[a-zA-Z]$/)){
+     currentToken.tagName += c;
           return tagName;
      }
      else if(c==">"){
+          emit(currentToken)
           return data;
      }else{
           return tagName;
@@ -58,7 +76,7 @@ function tagName(c){
 }
 
 function beforeAttributeName(c){
-     if(c.match(/^[\t\n\f]$/)){
+     if(c.match(/^[\t\n\f ]$/)){
           return beforeAttributeName;
      }
      else if(c==">"){
@@ -87,9 +105,9 @@ function selfClosingStartTag(c){
 module.exports.parseHTML = function parseHTML(html){
      let state =  data;
      for(let c of html){
-          state = state(c)
+          state = state(c);
      }
-     state = state(EOF)
+     state = state(EOF);
     
 
 }
