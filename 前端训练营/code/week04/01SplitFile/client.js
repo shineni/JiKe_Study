@@ -71,6 +71,11 @@ class Request{
     
     
     send(connection){
+        /*
+            1.根据已有的connection去send()
+            2.主动创建connection
+            3.send设置成一个Promise
+        */
         return new Promise((resolve,reject)=>{
             const parser = new ResponseParse;
             if(connection){
@@ -84,6 +89,7 @@ class Request{
                     connection.write(this.toString());
                 })
             }
+            //data的两个触发条件：1）buffer满了 2）服务端收到了一个包
             connection.on("data",(data)=>{
                 parser.receive(data.toString());
                // resolve(data.toString());

@@ -641,6 +641,7 @@ Promise相关： **【代码参考：\code\week03\statement.html】**
 
 #### 1.3 ISO-OSI七层网络模型
 TCP
+IP
 
 
 ## 第六周 第七周 玩具浏览器
@@ -764,16 +765,84 @@ while(input){
 	- 实际浏览器中，文字绘制是难点，需要依赖字体库，这边先忽略
 	- 实际浏览器中，还会对图层做compositing，这边先忽略
 
-## 第七周
+## 第七周 CSS
 CSS总体结构
 - @charset
 - @import
-- rules 
+- rules
 	- @media
 	- @page
 	- rule
 CDO <!--
 CDC -->
+
+标签 元素 盒
+盒模型
+
+![盒模型.PNG](.\imgs\第八周\盒模型.PNG)
+- 4层
+    - content
+    - padding
+    - border
+    - margin（留白）
+width 一般指的是content width
+boxsizing:
+- content-box
+- border-box 指的是包含border范围内的区域
+
+正常流（normal flow）
+![IFC&BFC.PNG](.\imgs\第八周\IFC&BFC.PNG)
+- 收集盒进行（块级元素占一整行,从左到右）
+	- line-box 行盒：
+	- block-box 块级盒
+
+- 计算盒在行中的排布
+	- inline-formatting context（IFC）
+		- inline-block元素里面如果没有内容，那么基线就是盒子的下边缘，所以inline-block需要配合vertial-align属性使用
+		
+        
+	- block-formatting context(BFC)
+- 计算行的排布
+
+
+
+
+float与clear
+margin折叠
+- 发生在BFC中
+·-overflow:hidden 外面是个独立的BFC里面也是一个BFC
+
+block-container 包含正常流的
+- block 
+- inline-block
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
