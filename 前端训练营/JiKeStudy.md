@@ -816,7 +816,28 @@ block-container 包含正常流的
 - block 
 - inline-block
 
+## 第十周 编程训练
+###1. TipTacToe
+![案例图.PNG](.\imgs\第十周\案例图.PNG)
+数据结构
+- 二维数组
+- 一维数组（最好）
+- map
 
+思路：从一个坐标，拿到一个点的状态
+状态： 三种
+- X 
+- O 
+- 无
+
+## 第十三周 组件化
+1. 组件
+
+![Component.PNG](.\imgs\第13周\Component.PNG)
+
+
+![designState.PNG](.\imgs\第13周\designState.PNG)
+config: JS全局 一锤子买卖
 
 
 
