@@ -1,0 +1,19 @@
+
+ caption-side
+ empty-cells
+ isolation
+ mix-blend-mode
+ object-fit
+ unicode-bidi
+ will-change
+ word-break
+ zoom
+ backdrop-filter
+ row-gap
+ hyphens
+perspective
+ perspective-origin
+writing-mode
+ vector-effect
+ paint-order
+
