@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">123<span style="background-color:yellow">456789</span>0123456789</div>
+    <script>
+         // ==============Range API的优势===========================
+         //1.可以精确地操作DOM
+         //2.可以批量地操作DOM
+        // Range的兼容性比较好
+
+        // range的作用：可以操作DOM树上的小的细节，切出来的就是document-fragment
+        // let element = document.getElementById("a").childNodes[0]
+        // let range = new Range();
+        // range.setStart(element,4);
+        // range.setEnd(element,8)
+
+        let range = new Range();
+        // ===============截取span以及字符的片段===========================
+        // range.setStart(document.getElementById("a").childNodes[1].childNodes[0],2)
+        // range.setEnd(document.getElementById("a").childNodes[2],3)
+        
+        //================截取所有的span以及字符的片段==========================
+        range.setStart(document.getElementById("a").childNodes[0],3)
+        range.setEnd(document.getElementById("a").childNodes[2],0)
+    </script>
+</body>
+</html>

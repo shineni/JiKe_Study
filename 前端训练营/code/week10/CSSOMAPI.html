@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #a{
+            color: red;
+        }
+    
+    </style>
+    <link rel="stylesheet" href="data:text/css,p%7Bcolor:blue%7D">
+    <!-- Data协议只要写text/css，然后写内联的样式，大括号需要转义 -->
+</head>
+<body>
+    <div id="a">123<span style="background-color:yellow">456789</span>0123456789</div>
+    <script>
+        /*
+        ==============CSSOM API的优势===========================
+        1.document.styleSheets
+            1.1 添加styleSheets的两种方法
+                * <style>标签
+                * link 标签
+                document.styleSheets
+                CSSStyleSheet.prototype
+                CSSStyleSheet继承了StyleSheet
+
+            没有不通过DOM API去创建样式表的操作
+            1.2 Rules
+                document.styleSheets[0].cssRules
+                document.styleSheets[0].insertRule("p{color:pink;}",0)
+                document.styleSheets[0].removeRule(0)
+            1.3 Rule(构造器有些是不能new但是都是有prototype,可以找继承关系)
+                CSSStyleRule
+                CSSCharsetRule
+                CSSImportRule
+                CSSMediaRule
+                CSSFontFaceRule
+                CSSPageRule
+                CSSNamespaceRule
+                CSSKeyframesRule
+                CSSkeframeRule
+                CSSSupportsRule
+                ......
+                1.3.1  CSSStyleRule
+                    * selectorText String 
+                    * style K-V 结构
+                    document.styleSheets[0].cssRules[0]
+            1.4 getComputedStyle
+                window.getComputedStyle(elt,pseudoElt);
+                * elt 想要获取的元素
+                * pseuDoEle 可选，伪元素
+
+            DOM HTML能干的事情，DOM API里面都有等效的形式
+            CSSOM CSS能干的事情，CSSOM API里面都有等效的形式
+
+        2.window API
+        let childWindow = window.open("about:blank","_blank")
+        let childWindow = window.open("about:blank","_blank","width=100,height=100,left=100,top=100")
+        childWindow.moveBy(-50,-50)
+        childWindow.resizeBy(50,50)
+        3.滚动API
+            window.scroll(0,30)
+            window.scroll(0,0)
+            window.scrollBy(0,50)
+
+            
+            元素上的API 和window上的API不一致$0.scrollBy(30,30)
+            $0.scrollHeight
+            算元素真实的位置 $0.getClientRects()
+
+
+        4.视口
+        window.innerHeight
+        window.innerWidth
+        window.outerHeight
+        window.outerWidth
+        window.devicePixelRatio
+        
+        document.documentElement.getBoundingClientRect()
+        
+
+        */
+ 
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x = document.getElementById("x");
+        var b = document.getElementById("b");
+
+        // for(var i = 0;i<x.children.length;i++){
+        //     b.appendChild(x.children[i]);
+        // }
+        // 正确写法
+        while(x.children.length){
+            b.appendChild(x.children[0]);
+        }
+
+    </script>
+    <div id="x">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+    <div id="b">
+
+    </div>
+</body>
+</html>

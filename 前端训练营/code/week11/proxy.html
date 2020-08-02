@@ -1,0 +1,33 @@
+<script>
+    let object = {
+        a:1,
+        b:2
+    }
+    
+    function reactive(obj){
+        return new Proxy(object,{
+            get(obj,prop){
+                console.log(obj,prop);
+                return obj[prop];
+            },
+            set(obj,prop,val){
+                console.log(obj,prop,val);
+                return obj[prop] = val
+            }
+        })
+    }
+
+
+
+    let proxy = new Proxy(object,{
+        get(obj,prop){
+            console.log(obj,prop)
+            return obj[prop]
+        },
+        defineProperty(obj,prop,desc){
+            console.log(arguments);
+            return  Object.defineProperty(obj,prop,desc)
+        }
+    })
+
+</script>

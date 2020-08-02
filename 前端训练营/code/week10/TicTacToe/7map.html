@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #board{
+            width: 350px;
+        }
+
+        .cell{
+            height: 100px;
+            width: 100px;
+            border: 1px solid white;
+            background-color: green;
+            display: inline-block;
+            vertical-align: middle;
+
+            line-height: 100px;
+            font-size: 50px;
+            text-align: center;
+            color:red;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="board"></div>
+    <script>
+        let pattern = [
+            [0,0,0],
+            [0,0,0],
+            [0,0,0]
+        ]
+        let color = 1;
+        function show(){
+           let board = document.getElementById("board");
+           board.innerHTML="";
+            for(let i = 0; i<3;i++){
+                for(let j = 0; j<3;j++){
+                    let cell = document.createElement("div");
+                    cell.classList.add("cell")
+                    cell.innerHTML = 
+                        pattern[i][j]==2?"X":
+                        pattern[i][j]==1?"O":
+                        "";
+
+                    cell.addEventListener("click",()=>userMove(j,i))
+                    board.appendChild(cell);
+    
+                }
+                board.appendChild(document.createElement("br"))
+            }
+        }
+
+        //用户和电脑下棋
+        function userMove(x,y){
+            pattern[y][x] = color;
+            if(check(pattern,color)){
+                alert(color==2?"X is winner":"O is winner")
+            }
+
+            color = 3 - color; //有交换律的技巧，也可以用除2的方式
+            
+            show();
+            //willwin 传入的是下一个color
+            // if(willWin(pattern,color)){
+            //     alert(color==2?"X will be winner":"O will be winner")
+            // }
+            computerMove();
+
+        }
+
+        function computerMove(){
+            let choice = bestchoice(pattern,color);
+            if(choice.point){
+                pattern[choice.point[1]][choice.point[0]] = color;
+            }
+            color  =  3 - color;
+            show();
+            if(willWin(pattern,color)){
+                alert(color==2?"X will be winner":"O will be winner")
+            }
+        }
+
+
+
+        function check(pattern, color){
+            for(let i = 0; i<3;i++){
+                let win = true;
+                for(let j = 0; j<3;j++){
+                    if (pattern[i][j]!==color){
+                        win = false;
+                        break;
+                    }
+                }
+                if(win){
+                    return true;
+                }
+            }
+
+            for(let i = 0; i<3;i++){
+                let win = true;
+                for(let j = 0; j<3;j++){
+                    if (pattern[j][i]!==color){
+                        win = false;
+                        break;
+                    }
+                }
+                if(win){
+                    return true;
+                }
+            }
+
+            {
+                let win = true;
+                for(let j = 0; j<3;j++){
+                    if (pattern[j][j]!==color){
+                        win = false;
+                        break;
+                    }
+                }
+                if(win){
+                    return true;
+                }
+            }
+
+            {
+                let win = true;
+                for(let j = 0; j<3;j++){
+                    if (pattern[j][2-j]!==color){
+                        win = false;
+                        break;
+                    }
+                }
+                if(win){
+                    return true;
+                }
+            }
+
+            return false;
+
+        }
+
+        function clone(pattern){
+            return JSON.parse(JSON.stringify(pattern))
+        }
+
+        function willWin(pattern,color){
+            for(let i = 0;i<3;i++){
+                for(let j = 0;j<3;j++){
+                    if(pattern[i][j] !== 0){
+                        continue;
+                    }
+                    let temp = clone(pattern);
+                    temp[i][j]   = color;
+                    if(check(temp,color)) {
+                        return [j,i];
+                    }          
+                 }
+            }
+        }
+
+        let opennings = new Map();
+        opennings.set( [
+            [0,0,0],
+            [0,0,0],
+            [0,0,0]
+        ].toString() + "1",{
+            point:[1,1],
+            result:0
+        })
+        opennings.set( [
+            [0,0,0],
+            [0,1,0],
+            [0,0,0]
+        ].toString() + "2",{
+            point:[0,0],
+            result:0
+        })
+
+        function bestchoice(pattern,color){
+            if(opennings.has(pattern.toString()+color)){
+                return opennings.get(pattern.toString())
+            }
+
+            let point = willWin(pattern,color);
+            if(point){
+                return {
+                    point:point,
+                    result:1
+                }
+            }
+
+            let result = -1;
+            outer:for(let i =0;i<3;i++){
+                for(let j=0;j<3;j++){
+                    if(pattern[i][j]!==0){
+                        continue;
+                    }
+                    let temp = clone(pattern);
+                    temp[i][j] = color;
+                    let opp = bestchoice(temp,3-color);
+                    if(-opp.result>=result){
+                        point=[j,i];
+                        result = -opp.result;
+                    }
+                    if(result ==1){
+                        break outer;
+                    }
+                }
+
+            }
+
+            return {
+                point:point,
+                result:point?result:0
+            }
+        }
+
+    
+        show();
+    
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">
+        <span>1</span>
+        <p>2</p>
+        <a>3</a>
+        <div>4</div>
+     
+    </div>
+    <script>
+        let element = document.getElementById("a")
+
+        function reverseChildren(element){
+
+            //=================version 1======================
+            // //1。先变成正常的数组，因为childNodes是Living collect
+            // let children = Array.prototype.slice.call(element.childNodes)
+            // for(let child of children){
+            //     element.removeChild(child)
+            // }
+            // // element.innerHTML = ""
+            // //实际上DOM具有自动remove的功能
+            // children.reverse(); 
+            
+            // for(let child of children){
+            //     element.appendChild(child)
+            // }  
+            
+            //==================version 2=======================
+            //始终取最后一个元素，并且最后一个元素是不会被append的元素影响的
+            let l = element.childNodes.length;
+            while(l-->0){
+                element.appendChild(element.childNodes[l])
+            }
+        }
+
+        reverseChildren(element)
+    </script>
+</body>
+</html>
