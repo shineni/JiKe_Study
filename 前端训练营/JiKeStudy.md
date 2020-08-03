@@ -2,20 +2,20 @@
 ## 第一周
 ### 1.概述以及学习方法介绍
 #### 1.1 前端技能模型
-![前端技能模型.PNG](.\imgs\第一周\前端技能模型.PNG)
+![前端技能模型.PNG](./imgs/第一周/前端技能模型.PNG)
 #### 1.2 前端学习方法
 - 整理法
 	- 顺序关系
-![顺序关系.PNG](.\imgs\第一周\顺序关系.PNG)
+![顺序关系.PNG](./imgs/第一周/顺序关系.PNG)
 	- 组合关系
-![组合关系.PNG](.\imgs\第一周\组合关系.PNG)
+![组合关系.PNG](./imgs/第一周/组合关系.PNG)
 	- 维度关系
-![维度关系.PNG](.\imgs\第一周\维度关系.PNG)
+![维度关系.PNG](./imgs/第一周/维度关系.PNG)
 	- 分类关系
-![分类关系.PNG](.\imgs\第一周\分类关系.PNG)
+![分类关系.PNG](./imgs/第一周/分类关系.PNG)
 
 - 追溯法
-![追溯法.PNG](.\imgs\第一周\追溯法.PNG)
+![追溯法.PNG](./imgs/第一周/追溯法.PNG)
 	- 案例分析闭包（Closure）
 		- 【源头】找维基百科，查询一下历史
 		- 【标准文档】谷歌学术搜索：
@@ -30,9 +30,9 @@
 - 下载JavaScript的标准ECMA
 	- https://www.ecma-international.org/
 	- 选Standards
-![ECMA下载截图.PNG](.\imgs\第一周\ECMA下载截图.PNG)
+![ECMA下载截图.PNG](./imgs/第一周/ECMA下载截图.PNG)
 	- 选ECMA262
-![ECMA262.PNG](.\imgs\第一周\ECMA262.PNG)
+![ECMA262.PNG](./imgs/第一周/ECMA262.PNG)
 	- 下载PDF版本
 
 
@@ -50,11 +50,11 @@
 
 ### 2.前端思维导图梳理
 
-![前端知识体系.PNG](.\imgs\第一周\前端知识体系.PNG)
+![前端知识体系.PNG](./imgs/第一周/前端知识体系.PNG)
 
 #### 2.1 HTML
 
-![前端知识体系_HTML.PNG](.\imgs\第一周\前端知识体系_HTML.PNG)
+![前端知识体系_HTML.PNG](./imgs/第一周/前端知识体系_HTML.PNG)
 
 - HTML
 	- DTD资料搜查
@@ -62,7 +62,7 @@
 		- 打开HTML的DTD规范网址：https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml1-strict.dtd
 
 	- entity文件
-		![DTDFile.PNG](.\imgs\第一周\DTDFile.PNG)
+		![DTDFile.PNG](./imgs/第一周/DTDFile.PNG)
         - https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml-lat1.ent
         - https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml-symbol.ent
         - https://www.w3.org/TR/2018/SPSD-xhtml1-20180327/DTD/xhtml-special.ent
@@ -73,43 +73,43 @@
 
 **简单示例code**
 
-![HTML样本.PNG](.\imgs\第一周\HTML样本.PNG)
+![HTML样本.PNG](./imgs/第一周/HTML样本.PNG)
 
 #### 2.2 Javascript
-![前端知识体系_Javascript.PNG](.\imgs\第一周\前端知识体系_Javascript.PNG)
+![前端知识体系_Javascript.PNG](./imgs/第一周/前端知识体系_Javascript.PNG)
 运行时JobRun()
-![运行时.PNG](.\imgs\第一周\运行时.PNG)
+![运行时.PNG](./imgs/第一周/运行时.PNG)
 有趣代码片段
-![有趣的空白符.PNG](.\imgs\第一周\有趣的空白符.PNG)
+![有趣的空白符.PNG](./imgs/第一周/有趣的空白符.PNG)
 
 #### 2.3 CSS
 
-![前端知识体系_CSS.PNG](.\imgs\第一周\前端知识体系_CSS.PNG)
+![前端知识体系_CSS.PNG](./imgs/第一周/前端知识体系_CSS.PNG)
 
 - 参考W3网站的CSS2.1
 - CSS规则
-![CSS规则.PNG](.\imgs\第一周\CSS规则.PNG)
+![CSS规则.PNG](./imgs/第一周/CSS规则.PNG)
 	- Selector3
 
 ### 3.前端思维导图详细（详见Xmind文件）
 
 ### 4.前端工程体系
 #### 4.1 优秀工程师是什么样的
-![优秀工程师.PNG](.\imgs\第一周\优秀工程师.PNG)
+![优秀工程师.PNG](./imgs/第一周/优秀工程师.PNG)
 #### 4.1 职业发展的方法论
-![职业发展方法论.PNG](.\imgs\第一周\职业发展方法论.PNG)
+![职业发展方法论.PNG](./imgs/第一周/职业发展方法论.PNG)
 
-![业务型成就.PNG](.\imgs\第一周\业务型成就.PNG)
+![业务型成就.PNG](./imgs/第一周/业务型成就.PNG)
 
-![技术难题.PNG](.\imgs\第一周\技术难题.PNG)
+![技术难题.PNG](./imgs/第一周/技术难题.PNG)
 
-![工程性成就.PNG](.\imgs\第一周\工程性成就.PNG)
+![工程性成就.PNG](./imgs/第一周/工程性成就.PNG)
 
-![持续集成.PNG](.\imgs\第一周\持续集成.PNG)
+![持续集成.PNG](./imgs/第一周/持续集成.PNG)
 
-![技术架构.PNG](.\imgs\第一周\技术架构.PNG)
+![技术架构.PNG](./imgs/第一周/技术架构.PNG)
 
-![技术架构2.PNG](.\imgs\第一周\技术架构2.PNG)
+![技术架构2.PNG](./imgs/第一周/技术架构2.PNG)
 
 **【相关链接：】**
 - ITEF
@@ -144,7 +144,7 @@
 1. 如何定义一个语言
 2. 如何去描述一种语言
 
-![结构图.PNG](.\imgs\第二周\结构图.PNG)
+![结构图.PNG](./imgs/第二周/结构图.PNG)
 
 #### 1.1 语言按语法分类
 - 非形式语言（中文，英文）
@@ -162,7 +162,7 @@
 
 #### 1.2 产生式
 
-![产生式BNF.PNG](.\imgs\第二周\产生式BNF.PNG)
+![产生式BNF.PNG](./imgs/第二周/产生式BNF.PNG)
 基础结构：类似JS的字符串，单个词如*
 复合结构：如乘法表达式
 终结符：类似字符串
@@ -172,7 +172,7 @@
 
 #### 1.3 产生式通过产生式理解乔姆斯基谱系
 
-![乔姆斯基谱系.PNG](.\imgs\第二周\乔姆斯基谱系.PNG)
+![乔姆斯基谱系.PNG](./imgs/第二周/乔姆斯基谱系.PNG)
 
 //十进制整数正则表达式
 `<DecimalNumber> = /"0"|[1-9][0-9]]*/`
@@ -232,7 +232,7 @@ Unicode Blocks 字符集，把所有国家的字符都包含在里面了（2个�
 	- CJK 中日韩三国语言
 	- BMP 基本字符平面，兼容性特别好，四位以内的
 		`"厉害".codePointAt(0).toString(36)`
-        如果必须要中文，那用中文的编码来实现用\u+编码 实现
+        如果必须要中文，那用中文的编码来实现用/u+编码 实现
 	-
 - Categories
 Unicode的官方网站：
@@ -241,7 +241,7 @@ https://www.fileformat.info/info/unicode/
 重要 回车  和SPACE
 
 
-![Unicode.PNG](.\imgs\第二周\Unicode.PNG)
+![Unicode.PNG](./imgs/第二周/Unicode.PNG)
 ### 2.2顶级输入元素
 - whiteSpace
     - Tab
@@ -308,9 +308,9 @@ https://www.fileformat.info/info/unicode/
 
     语法(707页)
     1. ""
-        "\x10"两位
-        "\u"四位
-        "\\"
+        "/x10"两位
+        "/u"四位
+        "//"
     2. ''
     3.``模板字符串
         拆成两部分`` 和“${}"
@@ -333,7 +333,7 @@ a
 
 ###1.遗留问题：float在内存里面的分布
 
-![浮点.PNG](.\imgs\第三周\浮点.PNG)
+![浮点.PNG](./imgs/第三周/浮点.PNG)
 - 有效数字： 10进制第一位一定是非0的值，二进制第一位一定是1
 - 浮点数是要设置一个可以接受的精度损失
 
@@ -362,17 +362,17 @@ buffer内存
 https://jsfiddle.net/pLh8qeor/19/
 
 ###2.Grammer 语法部分
-![词法语法运行时框架.PNG](.\imgs\第三周\词法语法运行时框架.PNG)
+![词法语法运行时框架.PNG](./imgs/第三周/词法语法运行时框架.PNG)
 
 
 
-![Expresssion.PNG](.\imgs\第三周\Expresssion.PNG)
+![Expresssion.PNG](./imgs/第三周/Expresssion.PNG)
 
 
 
-#### 2.1 Expression**【代码参考：\code\week03\super.html】**
+#### 2.1 Expression**【代码参考：/code/week03/super.html】**
 
-![LeftHand.PNG](.\imgs\第三周\LeftHand.PNG)
+![LeftHand.PNG](./imgs/第三周/LeftHand.PNG)
 
 - Member属性访问，成员访问,property运算，取一个属性 运算能保持可写的特性，返回的是Reference 类型
 	- a.b
@@ -388,7 +388,7 @@ https://jsfiddle.net/pLh8qeor/19/
 	- super['b']
 	- new.target
 	- new Foo()
-![Reference.PNG](.\imgs\第三周\Reference.PNG)
+![Reference.PNG](./imgs/第三周/Reference.PNG)
 
 
 ```
@@ -454,7 +454,7 @@ new new cls2("good")
 - Call 函数调用
 	- new a()["b"]先new 再取b
 
-![RightHand.PNG](.\imgs\第三周\RightHand.PNG)
+![RightHand.PNG](./imgs/第三周/RightHand.PNG)
 
 - Update
 - Unary(Page 178)
@@ -485,11 +485,11 @@ for (var i = 0;i<10;i++){
 }
 ```
 
-#### 2.2 Atom **【代码参考：\code\week03\statement.html】**
+#### 2.2 Atom **【代码参考：/code/week03/statement.html】**
 
 
-![Atom.PNG](.\imgs\第三周\Atom.PNG)
-![运行时.PNG](.\imgs\第三周\运行时.PNG)
+![Atom.PNG](./imgs/第三周/Atom.PNG)
+![运行时.PNG](./imgs/第三周/运行时.PNG)
 - 声明
 	- funtion
 	- function *
@@ -505,7 +505,7 @@ for (var i = 0;i<10;i++){
 
 ###3.类型转换
 
-![类型转换.PNG](.\imgs\第三周\类型转换.PNG)
+![类型转换.PNG](./imgs/第三周/类型转换.PNG)
 - 装箱
     JS中的类和类型是分开的，四个构造函数（四种类）： String Number Symbol Boolean
     new Number(1)    把1包装成一个Number对象
@@ -537,7 +537,7 @@ NumberToString
 
 ###4.面向对象
 
-![面向对象.PNG](.\imgs\第三周\面向对象.PNG)
+![面向对象.PNG](./imgs/第三周/面向对象.PNG)
 #### 4.1 对象的三要素
 - 对象唯一标识性
 - 有状态
@@ -551,16 +551,16 @@ NumberToString
 
 #### 4.2 面向对象第一范式（基于类）
 
-![基于类.PNG](.\imgs\第三周\基于类.PNG)
+![基于类.PNG](./imgs/第三周/基于类.PNG)
 
 
 #### 4.3 面向对象第二范式（基于对象）
 
-![基于原型.PNG](.\imgs\第三周\基于原型.PNG)
+![基于原型.PNG](./imgs/第三周/基于原型.PNG)
 
 #### 4.4 JavaScript中的对象
 
-![OjectinJS.PNG](.\imgs\第三周\OjectinJS.PNG)
+![OjectinJS.PNG](./imgs/第三周/OjectinJS.PNG)
 
 - JavaScript运行时，原生对象的描述方式非常简单，只需要**关心原型**和**属性**两个部分
 - JavaScript用属性来统一抽象对象的状态和行为，
@@ -589,20 +589,20 @@ Oject API/Grammer
 
 
 ## 第四周(结构化)
-![OC.PNG](.\imgs\第五周\OC.PNG)
+![OC.PNG](./imgs/第五周/OC.PNG)
 OC： Objective-C 是一种通用、高级、面向对象的编程语言。它扩展了标准的 ANSI C 编程语言，将 Smalltalk 式的消息传递机制加入到 ANSI C 中。当前主要支持的编译器有 GCC 和 Clang（采用 LLVM 作为后端）。
-Promise相关： **【代码参考：\code\week03\statement.html】**
+Promise相关： **【代码参考：/code/week03/statement.html】**
 
 ###4.1 JS执行粒度
 
-![JS执行粒度.PNG](.\imgs\第四周\JS执行粒度.PNG)
+![JS执行粒度.PNG](./imgs/第四周/JS执行粒度.PNG)
 
 **Realm**——它里面有一套完整的JS内置对象
 
 
 **函数调用**
 
-![函数调用分析图.PNG](.\imgs\第五周\函数调用分析图.PNG)
+![函数调用分析图.PNG](./imgs/第五周/函数调用分析图.PNG)
 - Exectution Context执行上下文
 	- ECMAScript Code Excution
     	- code evaluation state
@@ -620,24 +620,24 @@ Promise相关： **【代码参考：\code\week03\statement.html】**
     	- VariableEnvironment
     	- Generator
 
-![ExecutionContext.PNG](.\imgs\第五周\ExecutionContext.PNG)
+![ExecutionContext.PNG](./imgs/第五周/ExecutionContext.PNG)
 **LexicalEnvironment 和 VariableEnvironment**
-![词法和变量环境.PNG](.\imgs\第五周\词法和变量环境.PNG)
+![词法和变量环境.PNG](./imgs/第五周/词法和变量环境.PNG)
 **组成LexicalEnvironment 和 VariableEnvironment的结构**
 
-![EnvironmentRecords.PNG](.\imgs\第五周\EnvironmentRecords.PNG)
+![EnvironmentRecords.PNG](./imgs/第五周/EnvironmentRecords.PNG)
 **如何产生LexicalEnvironment里面的内容-----【该机制就是JS中Closure闭包的原理】**
 
-![Closure.PNG](.\imgs\第五周\Closure.PNG)
+![Closure.PNG](./imgs/第五周/Closure.PNG)
 
 
 ## 第五周
 ###1. 浏览器
 #### 1.1浏览器执行过程
-![浏览器.PNG](.\imgs\第五周\浏览器.PNG)
+![浏览器.PNG](./imgs/第五周/浏览器.PNG)
 #### 1.2 ISO-OSI七层网络模型
 
-![网络模型.PNG](.\imgs\第五周\网络模型.PNG)
+![网络模型.PNG](./imgs/第五周/网络模型.PNG)
 
 #### 1.3 ISO-OSI七层网络模型
 TCP
@@ -674,9 +674,9 @@ while(input){
 
 ### 2. HTML转DOM
 
-![HTMLToDOM.PNG](.\imgs\第六周\HTMLToDOM.PNG)
+![HTMLToDOM.PNG](./imgs/第六周/HTMLToDOM.PNG)
 
-![状态.PNG](.\imgs\第六周\状态.PNG)
+![状态.PNG](./imgs/第六周/状态.PNG)
 
 - 第一步： 拆分文件
 	- 为了方便文件管理，我们把parser单独拆到文件中
@@ -730,16 +730,16 @@ while(input){
 
 ### 4.Layout
 #### 4.1 主轴(元素的排布方向)和交叉轴（与主轴垂直的方向）
-![主轴交叉轴.PNG](.\imgs\第六周\主轴交叉轴.PNG)
+![主轴交叉轴.PNG](./imgs/第六周/主轴交叉轴.PNG)
 #### 4.2 收集元素进行
-![收集元素进行.PNG](.\imgs\第六周\收集元素进行.PNG)
+![收集元素进行.PNG](./imgs/第六周/收集元素进行.PNG)
 - 分行
 	- 根据主轴尺寸，把元素分进行
 	- 若设置了no-wrap 则强行分配进第一行
 
 #### 4.3 计算主轴
 
-![主轴计算.PNG](.\imgs\第六周\主轴计算.PNG)
+![主轴计算.PNG](./imgs/第六周/主轴计算.PNG)
 
 - 计算主轴方向
 	- 找出所有Flex元素
@@ -748,7 +748,7 @@ while(input){
 
 #### 4.4 计算交叉轴
 
-![交叉轴计算.PNG](.\imgs\第六周\交叉轴计算.PNG)
+![交叉轴计算.PNG](./imgs/第六周/交叉轴计算.PNG)
 
 - 计算交叉轴方向
 	- 根据每一行中最大元素尺寸计算行高
@@ -779,7 +779,7 @@ CDC -->
 标签 元素 盒
 盒模型
 
-![盒模型.PNG](.\imgs\第八周\盒模型.PNG)
+![盒模型.PNG](./imgs/第八周/盒模型.PNG)
 - 4层
     - content
     - padding
@@ -791,7 +791,7 @@ boxsizing:
 - border-box 指的是包含border范围内的区域
 
 正常流（normal flow）
-![IFC&BFC.PNG](.\imgs\第八周\IFC&BFC.PNG)
+![IFC&BFC.PNG](./imgs/第八周/IFC&BFC.PNG)
 - 收集盒进行（块级元素占一整行,从左到右）
 	- line-box 行盒：
 	- block-box 块级盒
@@ -818,7 +818,7 @@ block-container 包含正常流的
 
 ## 第十周 编程训练
 ###1. TipTacToe
-![案例图.PNG](.\imgs\第十周\案例图.PNG)
+![案例图.PNG](./imgs/第十周/案例图.PNG)
 数据结构
 - 二维数组
 - 一维数组（最好）
@@ -833,12 +833,14 @@ block-container 包含正常流的
 ## 第十三周 组件化
 1. 组件
 
-![Component.PNG](.\imgs\第13周\Component.PNG)
+![Component.PNG](./imgs/第13周/Component.PNG)
 
 
-![designState.PNG](.\imgs\第13周\designState.PNG)
+![designState.PNG](./imgs/第13周/designState.PNG)
 config: JS全局 一锤子买卖
 
+2.组件的生命周期
+3.Children
 
 
 
@@ -880,3 +882,12 @@ config: JS全局 一锤子买卖
 
 
 
+
+| Column 1  | Column 2  | Column 3  |
+|:----------|:----------|:----------|
+| Cell 1    | Cell 2    | Cell 3    |
+| Cell 1    | Cell 2    | Cell 3    |
+| Column 1  | Column 2  | Column 3  |
+|:----------|:----------|:----------|
+| Cell 1    | Cell 2    | Cell 3    |
+| Cell 1    | Cell 2    | Cell 3    |
