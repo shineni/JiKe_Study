@@ -8,7 +8,7 @@ module.exports = {
                     loader:'babel-loader',
                     options:{
                         presets:['@babel/preset-env'],
-                        //一个数组是一个插件, pragma意思是翻译成什么
+                        //一个数组是一个插件, pragma意思是翻译成什么，函数名
                         plugins:[['@babel/plugin-transform-react-jsx',{pragma:"createEle"}]]
                     }
                 }
