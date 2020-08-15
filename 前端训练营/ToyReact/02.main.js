@@ -10,6 +10,7 @@ let  a = <div name="a" id="idea">
 </div>
 
 /*
+参数： type, attributes, children
 var a = ToyReact.CreateElement("div", {
   name: "a",
   id: "idea"

@@ -23,20 +23,6 @@ react里认为：
         - RENDER_TO_DOM 就有了重新渲染的功能
             - 挂载到某个位置，使用Range API
         - 重新绘制的渲染能力
-            - 需要用一个变量将range保存起来
-            - 需要写一个重新渲染的函数
-                - 删除range, 重新添加
-                    - 案例：每次让state加1，然后重新render
-        - setState
-            - 实际上setState中 this.state.a++; this.rerender()这两句是合二为一的操作
-            -  不同点： 
-                - 实现对象的合并，就是把旧的state和新的state合并，不会把旧的完全替换掉
-                - rerender是不需要去手工调用的
-
-        【正则小技巧】
-        【typeof的坑】 在判断对象的时候一定要联合null 一起判断，因为null返回的也是object
-
-
         */
 
 //Symbol是不需要new的
@@ -48,28 +34,15 @@ class ElementWrapper{
     }
 
     setAttribute(name, value){
-        //正则小技巧[\s\S]互补的一个是所有空白，一个是所有的非空白，从而达到表示所有的字符的目的
-        //根据名字过滤，如果以on开头的那么就是绑定时间，否则设置属性
-        if(name.match(/^on([\s\S]+)$/)){
-            this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/,c=>c.toLowerCase()),value);
-        }
-        else{
-            this.root.setAttribute(name,value);
-        }
-
-
-        
+        this.root.setAttribute(name,value)
     }
 
     appendChild(component){
         //创建Range,渲染component 
         let range = document.createRange();
         range.setStart(this.root, this.root.childNodes.length);
-        range.setEnd(this.root,this.root.childNodes.length);
-        if(range!==null){
-            component[RENDER_TO_DOM](range)
-        }
-       
+        range.setEnd(this.root,this.root.childNodes.length)
+        component[RENDER_TO_DOM](range)
     }
     [RENDER_TO_DOM] (range){
         range.deleteContents();
@@ -92,8 +65,7 @@ export class Component{
         this.children= [];
         //用下划线表示私有
         this._root = null;
-        this._range = null;
-        //this.state = null;
+        //this._range = null;
     }
 
     setAttribute(name, value){
@@ -110,42 +82,9 @@ export class Component{
     //在没有private field之前最好的解决方案
     //如果是字符串的时候，不论是class还是object,都可以用[]代替这个名字，来表示里面是一个变量，从而达到不太容易被访问到的目的
     [RENDER_TO_DOM] (range){
-        this._range = range
+       // this._range = range
         this.render()[RENDER_TO_DOM](range);
 
-    }
-
-    rerender(){
-        let oldRange = this._range;
-        let range = document.createRange();
-        range.setStart(oldRange.startContainer, oldRange.startOffset);
-        this[RENDER_TO_DOM](range);
-        oldRange.setStart(range.endContainer,range.endOffset)
-        this._range.deleteContents();
-        
-    }
-
-    setState(newState){
-        if(this.state === null || typeof this.state !=="object"){
-            this.state =  newState;
-            this.rerender();
-            return;
-        }
-
-        let merge = (oldState,newState)=>{
-            for(let p in newState){
-                if(oldState[p]===null || typeof oldState[p] !== "object"){
-                    oldState[p] = newState[p];
-                }
-                else{
-                    merge(oldState[p],newState[p])
-                }
-            }
-
-        }
-
-        merge(this.state, newState);
-        this.rerender();
     }
    
 
@@ -180,9 +119,6 @@ export let ToyReact = {
             for(let child of children){
                 if(typeof child ==="string"){
                     child = new TextWrapper(child)
-                }
-                if(typeof child ===null){
-                   continue;
                 }
 
                 if((typeof child ==="object")&& (child instanceof Array)){
