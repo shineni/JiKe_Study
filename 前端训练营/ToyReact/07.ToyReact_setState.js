@@ -1,4 +1,44 @@
 
+/*
+react里认为：
+- 完整的UI= 模版 + 数据
+
+- 更改UI的本质是对数据的更改，再重新使用render函数
+
+解决的主要问题：
+    1. 数据来源
+    2. 如何实现数据更新机制
+主要任务：
+    1.如何修改Component类和Wrapper,使得自定义的组件支持state机制
+
+概念：
+    1. state
+        - 就是一个普通的对象，对象存着一些数据，没有函数，
+    2. setState
+        - 不但改变了state这个值本身，而且会启动重新render的动作
+        - 如果多次setstate则会在整个生命周期结束的时候，发起一次重新render，这次render以后，组件就按照正确的模板写了
+        - 组件是如何更新的（难点）
+实现：
+    1.组件如何实现更新？
+        - 组件一定是在render这个环节知道如何更新的，Component取root得过程实际上就是真实渲染的过程
+        - RENDER_TO_DOM 就有了重新渲染的功能
+            - 挂载到某个位置，使用Range API
+        - 重新绘制的渲染能力
+            - 需要用一个变量将range保存起来
+            - 需要写一个重新渲染的函数
+                - 删除range, 重新添加
+                    - 案例：每次让state加1，然后重新render
+        - setState
+            - 实际上setState中 this.state.a++; this.rerender()这两句是合二为一的操作
+            -  不同点： 
+                - 实现对象的合并，就是把旧的state和新的state合并，不会把旧的完全替换掉
+                - rerender是不需要去手工调用的
+
+        【正则小技巧】
+        【typeof的坑】 在判断对象的时候一定要联合null 一起判断，因为null返回的也是object
+
+
+        */
 
 const RENDER_TO_DOM = Symbol("render to dom");
 class ElementWrapper{
@@ -13,6 +53,12 @@ class ElementWrapper{
             this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/,c=>c.toLowerCase()),value);
         }
         else{
+            if(name=="className"){
+                this.root.setAttribute("class",value);
+            }
+            else{
+                
+            }
             this.root.setAttribute(name,value);
         }       
     }

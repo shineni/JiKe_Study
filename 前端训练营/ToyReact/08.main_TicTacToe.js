@@ -1,5 +1,5 @@
 import{Component,render,createElement} from './ToyReact.js'
-const RENDER_TO_DOM = Symbol("render to dom");
+
 class Square extends Component {
   render(){
     return (
@@ -83,10 +83,6 @@ class Game extends Component {
     });
   }
 
-  // [RENDER_TO_DOM](range){
-  //   console.log("******")
-  // }
-
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -130,8 +126,6 @@ class Game extends Component {
 // ========================================
 
 render(<Game />, document.getElementById("root"));
-//let game = <Game/>
-//console.log(game.vdom)
 
 function calculateWinner(squares) {
   const lines = [
