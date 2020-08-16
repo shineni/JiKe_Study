@@ -13,12 +13,7 @@ class ElementWrapper{
             this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/,c=>c.toLowerCase()),value);
         }
         else{
-            if(name=="className"){
-                this.root.setAttribute("class",value);
-            }
-            else{
-                this.root.setAttribute(name,value);
-            }
+            this.root.setAttribute(name,value);
         }       
     }
 

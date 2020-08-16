@@ -42,6 +42,7 @@ react里认为：
 //Symbol是不需要new的
 
 const RENDER_TO_DOM = Symbol("render to dom");
+
 class ElementWrapper{
     constructor(type){
         this.root = document.createElement(type);
@@ -50,15 +51,16 @@ class ElementWrapper{
     setAttribute(name, value){
         //正则小技巧[\s\S]互补的一个是所有空白，一个是所有的非空白，从而达到表示所有的字符的目的
         //根据名字过滤，如果以on开头的那么就是绑定时间，否则设置属性
-        if(name.match(/^on([\s\S]+)$/)){
-            this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/,c=>c.toLowerCase()),value);
+        if(name.match(/^on([\s\S]+)$/)) {
+            this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/,c => c.toLowerCase()), value);
         }
         else{
-            this.root.setAttribute(name,value);
+            if(name === "className"){
+                this.root.setAttribute("class",value);
+            }else{
+                this.root.setAttribute(name,value);
+            }
         }
-
-
-        
     }
 
     appendChild(component){
@@ -66,21 +68,20 @@ class ElementWrapper{
         let range = document.createRange();
         range.setStart(this.root, this.root.childNodes.length);
         range.setEnd(this.root,this.root.childNodes.length);
-        if(range!==null){
-            component[RENDER_TO_DOM](range)
-        }
-       
+        
+        component[RENDER_TO_DOM](range);
     }
-    [RENDER_TO_DOM] (range){
+    [RENDER_TO_DOM](range){
         range.deleteContents();
         range.insertNode(this.root);
     }
 }
+
 class TextWrapper{
     constructor(content){
         this.root = document.createTextNode(content);
     }
-    [RENDER_TO_DOM] (range){
+    [RENDER_TO_DOM](range){
         range.deleteContents();
         range.insertNode(this.root);
     }
@@ -100,41 +101,37 @@ export class Component{
         this.props[name] = value;
     }
 
-    getAttribute(name){
-        return this.props[name];
-    }
-
     appendChild(component){
         this.children.push(component);
     }
     //在没有private field之前最好的解决方案
     //如果是字符串的时候，不论是class还是object,都可以用[]代替这个名字，来表示里面是一个变量，从而达到不太容易被访问到的目的
-    [RENDER_TO_DOM] (range){
+    [RENDER_TO_DOM](range){
         this._range = range
         this.render()[RENDER_TO_DOM](range);
-
     }
 
     rerender(){
         let oldRange = this._range;
         let range = document.createRange();
         range.setStart(oldRange.startContainer, oldRange.startOffset);
+        range.setEnd(oldRange.startContainer,oldRange.startContainer);
         this[RENDER_TO_DOM](range);
+
         oldRange.setStart(range.endContainer,range.endOffset)
-        this._range.deleteContents();
-        
+        oldRange.deleteContents();
     }
 
     setState(newState){
-        if(this.state === null || typeof this.state !=="object"){
+        if(this.state === null || typeof this.state !== "object"){
             this.state =  newState;
             this.rerender();
             return;
         }
 
-        let merge = (oldState,newState)=>{
+        let merge = (oldState, newState) => {
             for(let p in newState){
-                if(oldState[p]===null || typeof oldState[p] !== "object"){
+                if(oldState[p] === null || typeof oldState[p] !== "object"){
                     oldState[p] = newState[p];
                 }
                 else{
@@ -147,50 +144,38 @@ export class Component{
         merge(this.state, newState);
         this.rerender();
     }
-   
-
-}
-
-export function render(component, parentElement){
-    let range = document.createRange();
-    range.setStart(parentElement,0);//从第一children到最后一个childredn
-    range.setEnd(parentElement,parentElement.childNodes.length);
-    range.deleteContents();
-    component[RENDER_TO_DOM](range);
-
-
 }
     
-export let ToyReact = {
-    CreateElement(type,attributes,...children){
+export function createElement(type,attributes,...children){
         let e;
 
-        if(typeof type === "string"){           
-            e = new ElementWrapper(type)
+        if(typeof type === "string"){        
+            e = new ElementWrapper(type);
         }
         else{
             e = new type;
         }
-    
+
         for(let p in attributes){
             e.setAttribute(p,attributes[p])
         }               
 
         let insertChilren = (children) =>{
             for(let child of children){
-                if(typeof child ==="string"){
+                console.log(typeof child);
+                if(typeof child === "string"){
                     child = new TextWrapper(child)
                 }
-                if(typeof child ===null){
+                if(child === null){
                    continue;
                 }
 
-                if((typeof child ==="object")&& (child instanceof Array)){
+                if((typeof child === "object") && (child instanceof Array)){
                     insertChilren(child)
-                }else{
-                    e.appendChild(child)
+                } else {
+                    if(e instanceof ElementWrapper)   
+                        e.appendChild(child);
                 }
-                
             }
         }
     
@@ -198,5 +183,12 @@ export let ToyReact = {
     
         return e
     }
-    
+
+
+export function render(component,parentElement){
+    let range = document.createRange();
+    range.setStart(parentElement, 0);
+    range.setEnd(parentElement,parentElement.childNodes.length);
+    range.deleteContents();
+    component[RENDER_TO_DOM](range);
 }
