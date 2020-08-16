@@ -112,10 +112,12 @@ export class Component{
     }
 
     rerender(){
+        //先插入再删除
         let oldRange = this._range;
+
         let range = document.createRange();
         range.setStart(oldRange.startContainer, oldRange.startOffset);
-        range.setEnd(oldRange.startContainer,oldRange.startContainer);
+        range.setEnd(oldRange.startContainer,oldRange.startOffset);
         this[RENDER_TO_DOM](range);
 
         oldRange.setStart(range.endContainer,range.endOffset)
@@ -138,7 +140,6 @@ export class Component{
                     merge(oldState[p],newState[p])
                 }
             }
-
         }
 
         merge(this.state, newState);
@@ -183,7 +184,6 @@ export function createElement(type,attributes,...children){
     
         return e
     }
-
 
 export function render(component,parentElement){
     let range = document.createRange();
