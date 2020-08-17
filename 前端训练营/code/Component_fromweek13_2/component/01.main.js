@@ -16,7 +16,7 @@
                 // 2. 第二个参数是 属性和值得键值对
 // }
 
-function createEle(ClsEle, attributes){
+function createElement(ClsEle, attributes){
     //console.log(arguments)
     var o = new Cls()
     for(var name in attributes){

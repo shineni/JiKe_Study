@@ -101,6 +101,7 @@ VDOM的比对
                 else{
                     //插入的range
                     let range = document.createRange();
+                    //产生一个空的Range
                     range.setStart(tailRange.endContainer, tailRange.endOffset);
                     range.setEnd(tailRange.endContainer,tailRange.endOffset);
                     newChild[RENDER_TO_DOM](range);

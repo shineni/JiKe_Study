@@ -16,18 +16,27 @@
                 // 2. 第二个参数是 属性和值得键值对
 // }
 
-function createEle(){
+//creteEle是组件体系对外的一个接口
+function createElement(type, attributes,...children){
     //注意： 当没有属性的时候，传进去的是null而不是空对象
-    console.log(arguments)
-    debugger;
-    // var o = new Cls()
-    // for(var name in attributes){
-    //     o[name] = attributes[name];
-    // }
-    // return o;
+    //console.log(arguments)
+
+    var o = new type;
+    for(let name in attributes){
+        o.setAttribute(name,attributes[name]);
+    }
+
+    for( let child of children ){
+
+    }
+    return o;
 }
 
 class Parent{
+    //让属性触发一些事情
+    set class(v){
+        console.log("Parent::class", v)
+    }
 
 }
 
@@ -41,4 +50,17 @@ let component = <Parent id="a" class="b">
     <Children></Children>
 
 </Parent>
+
+//翻译后 JSX 构建树的顺序是：先子后父
+// var component = createEle(
+//     Parent, 
+//     {
+//         id: "a",
+//         "class": "b"
+//      }, 
+//      createEle(Children, null), 
+//      createEle(Children, null), 
+//      createEle(Children, null)
+//      );
+
 console.log(component)
